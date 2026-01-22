@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Science+Gothic:wght@100..900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-spafax-red: rgb(189, 10, 39);
+  --color-spafax-off-black: rgb(13, 0, 2);
+
+  --font-science-gothic: "Science Gothic", sans-serif;
+  --font-pt-sans: "PT Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: "PT Sans Pro", sans-serif;
+    line-height: 1.5;
+    color: white;
+    background-color: black;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Science Gothic", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  label {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .heritage-bg {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 1) 100%), url("/assets/s.png");
+    background-position: center center;
+    background-size: cover, 50%;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: scroll, fixed;
+  }
+
+  .worldwide-excellence-bg {
+    background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.1) 100%), url("/assets/worldwide-excellence.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    mask-image: linear-gradient(to bottom, transparent, black var(--fade-size, 5rem), black calc(100% - var(--fade-size, 5rem)), transparent);
+    mask-composite: intersect;
+  }
+
+  .statistics-bg {
+    background: radial-gradient(59.3% 99.73% at 55.38% 136.19%, rgba(115, 9, 18, 0.7) 0%, black 84.79%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .cta-bg {
+    background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.1) 100%), url("/assets/cta.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .btn {
+    @apply inline-flex gap-2 items-center justify-center text-center bg-white text-black font-semibold font-science-gothic text-[11px] tracking-[0.2em] uppercase px-10 py-4 rounded-md cursor-pointer w-fit;
+
+    &.btn--secondary {
+      @apply bg-black text-white;
+    }
+  }
+
+  .sector-tab {
+    @apply bg-white text-black font-science-gothic text-[11px] tracking-[0.05em] uppercase px-6 py-3 rounded-full whitespace-nowrap cursor-pointer;
+
+    &.active {
+      @apply bg-spafax-off-black text-white;
+    }
+  }
+
+  /* Dropdown animation */
+  .dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .dropdown-content.active {
+    max-height: 500px;
+  }
+
+  /* Icon rotation */
+  .dropdown-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown-icon.active {
+    transform: rotate(180deg);
+  }
+
+  /* Parallax effect helper */
+  .parallax-slow {
+    will-change: transform;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
