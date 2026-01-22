@@ -11,6 +11,10 @@
 }
 
 @layer base {
+  * {
+    /* outline: 1px solid red; */
+  }
+
   body {
     font-family: "PT Sans Pro", sans-serif;
     line-height: 1.5;
