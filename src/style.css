@@ -11,10 +11,6 @@
 }
 
 @layer base {
-  * {
-    /* outline: 1px solid red; */
-  }
-
   body {
     font-family: "PT Sans Pro", sans-serif;
     line-height: 1.5;
@@ -71,11 +67,24 @@
   }
 
   .btn {
-    @apply inline-flex gap-2 items-center justify-center text-center bg-white text-black font-semibold font-science-gothic text-[11px] tracking-[0.2em] uppercase px-10 py-4 rounded-md cursor-pointer w-fit;
+    @apply inline-flex gap-2 items-center justify-center text-center bg-white text-black font-semibold font-science-gothic text-[11px] tracking-[0.2em] uppercase px-10 py-4 rounded-md cursor-pointer w-fit transition-transform hover:scale-105 active:scale-95;
 
     &.btn--secondary {
       @apply bg-black text-white;
     }
+  }
+
+  /* Mobile menu styles */
+  #mobile-menu {
+    @apply hidden fixed top-0 left-0 w-full h-full bg-black/95 backdrop-blur-md z-40 flex-col items-center justify-center gap-8 pt-20 transition-transform duration-300 ease-in-out;
+
+    @media (min-width: 768px) {
+      @apply flex static w-auto h-auto bg-transparent backdrop-blur-none flex-row pt-0;
+    }
+  }
+
+  #mobile-menu.show {
+    @apply flex;
   }
 
   .sector-tab {
@@ -85,34 +94,17 @@
       @apply bg-spafax-off-black text-white;
     }
   }
-
-  /* Dropdown animation */
-  .dropdown-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .dropdown-content.active {
-    max-height: 500px;
-  }
-
-  /* Icon rotation */
-  .dropdown-icon {
-    transition: transform 0.3s ease;
-  }
-
-  .dropdown-icon.active {
-    transform: rotate(180deg);
-  }
-
-  /* Parallax effect helper */
-  .parallax-slow {
-    will-change: transform;
-  }
 }
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding-inline: 1rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-inline: 2rem;
+  }
 }
