@@ -67,7 +67,7 @@
   }
 
   .btn {
-    @apply inline-flex gap-2 items-center justify-center text-center bg-white text-black font-semibold font-science-gothic text-[11px] tracking-[0.2em] uppercase px-10 py-4 rounded-md cursor-pointer w-fit transition-transform hover:scale-105 active:scale-95;
+    @apply inline-flex gap-2 items-center justify-center text-center bg-white text-black font-semibold font-science-gothic text-[11px] tracking-[0.2em] uppercase px-10 py-4 rounded-md cursor-pointer w-fit transition-transform active:scale-95;
 
     &.btn--secondary {
       @apply bg-black text-white;
