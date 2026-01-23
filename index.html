@@ -363,48 +363,240 @@
           <h2 class="text-xl md:text-2xl text-black">Sectors</h2>
           <a href="#" class="btn btn--secondary text-[10px] md:text-[11px] px-6 md:px-10 py-3 md:py-4"> View all </a>
         </div>
-        <div class="flex flex-wrap gap-2 md:gap-4 mb-8 md:mb-16">
-          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3">Bus, Coach & PSV</button>
-          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3">Truck & HGV</button>
-          <button type="button" class="sector-tab active text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3">Agriculture</button>
-          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3">Construction</button>
-          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3">Forklift materials Handling</button>
-          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3">Airport GSE</button>
-          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3">Security & EMERGENCY SERVICES</button>
+        <div class="sector-tabs flex flex-wrap gap-2 md:gap-4 mb-8 md:mb-16">
+          <button type="button" class="sector-tab active text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3" data-slide="0">Bus, Coach & PSV</button>
+          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3" data-slide="1">Truck & HGV</button>
+          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3" data-slide="2">Agriculture</button>
+          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3" data-slide="3">Construction</button>
+          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3" data-slide="4">Forklift materials Handling</button>
+          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3" data-slide="5">Airport GSE</button>
+          <button type="button" class="sector-tab text-[9px] md:text-[11px] px-4 md:px-6 py-2 md:py-3" data-slide="6">Security & EMERGENCY SERVICES</button>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-32 items-center">
-          <div class="order-2 md:order-1">
-            <svg class="w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 shrink-0" xmlns="http://www.w3.org/2000/svg" width="82" height="70" viewBox="0 0 82 70" fill="none">
-              <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044Z" fill="url(#paint0_linear_646_6502)" fill-opacity="0.3" />
-              <path d="M52.5867 55.8044H49.425V47.9368C49.425 40.6204 55.377 34.6707 62.6912 34.6707H65.8528V42.5383C65.8528 49.8547 59.9008 55.8044 52.5867 55.8044ZM50.3362 54.8933H52.5867C59.3997 54.8933 64.9417 49.3513 64.9417 42.5383V35.5818H62.6912C55.8782 35.5818 50.3362 41.1238 50.3362 47.9368V54.8933Z" fill="#0D0002" />
-              <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044ZM34.8447 35.5818V42.5383C34.8447 49.3513 40.3867 54.8933 47.1997 54.8933H49.4502V47.9368C49.4502 41.1238 43.9082 35.5818 37.0952 35.5818H34.8447Z" fill="#0D0002" />
-              <path d="M34.8447 15.9377H33.9336V40.8891H34.8447V15.9377Z" fill="#0D0002" />
-              <path d="M65.8532 15.9377H64.942V40.8891H65.8532V15.9377Z" fill="#0D0002" />
-              <path d="M41.0043 35.2927L40.1091 35.1241C40.1182 35.0717 41.0977 29.8988 42.74 24.7919C44.9996 17.7625 47.4119 14.2 49.9084 14.2C52.4049 14.2 54.8125 17.7648 57.063 24.7919C58.6985 29.8988 59.6712 35.0717 59.6803 35.1241L58.7851 35.2904C58.776 35.2403 57.8125 30.1152 56.1929 25.0629C54.1383 18.644 51.906 15.1111 49.9084 15.1111C47.9107 15.1111 45.6739 18.6463 43.6102 25.0629C41.9861 30.1152 41.0157 35.2403 41.0043 35.2904V35.2927Z" fill="#0D0002" />
-              <path d="M50.3363 0.382568H49.4251L49.425 69.4161H50.3362L50.3363 0.382568Z" fill="#0D0002" />
-              <g opacity="0.22">
-                <path d="M49.8939 9.5669C62.3218 9.5669 72.4331 19.6782 72.4331 32.1061C72.4331 44.5339 62.3218 54.6452 49.8939 54.6452C37.466 54.6452 27.3547 44.5339 27.3547 32.1061C27.3547 19.6782 37.466 9.5669 49.8939 9.5669ZM49.8939 0.455566C32.4138 0.455566 18.2434 14.626 18.2434 32.1061C18.2434 49.5862 32.4138 63.7566 49.8939 63.7566C67.374 63.7566 81.5444 49.5862 81.5444 32.1061C81.5444 14.626 67.3717 0.455566 49.8939 0.455566Z" fill="url(#paint1_linear_646_6502)" />
-              </g>
-              <path d="M49.8928 68.9825C11.2801 68.9825 19.5233 31.2371 0 31.2371" stroke="#0D0002" stroke-width="1.2" />
-              <path d="M49.8939 64.2099C32.1906 64.2099 17.7878 49.8071 17.7878 32.1061C17.7878 14.405 32.1906 0 49.8939 0C67.5972 0 82 14.4027 82 32.1061C82 49.8094 67.5972 64.2121 49.8939 64.2121V64.2099ZM49.8939 0.911134C32.6917 0.911134 18.699 14.9039 18.699 32.1061C18.699 49.3083 32.6917 63.301 49.8939 63.301C67.0961 63.301 81.0888 49.3083 81.0888 32.1061C81.0888 14.9039 67.0938 0.911134 49.8939 0.911134Z" fill="#0D0002" />
-              <defs>
-                <linearGradient id="paint0_linear_646_6502" x1="42.1475" y1="34.6707" x2="42.0835" y2="52.4958" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#BD0A27" />
-                  <stop offset="1" stop-color="#BD0A27" stop-opacity="0" />
-                </linearGradient>
-                <linearGradient id="paint1_linear_646_6502" x1="18.2434" y1="32.1061" x2="81.5421" y2="32.1061" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#BD0A27" />
-                  <stop offset="0.65" stop-color="#BD0A27" stop-opacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <h3 class="text-[10px] md:text-xs text-spafax-red mb-4 md:mb-6">Reliable and proven performance</h3>
-            <h3 class="text-xl md:text-2xl text-black mb-4 md:mb-8">Agriculture</h3>
-            <p class="text-sm md:text-base text-black mb-3 md:mb-4">The natural choice for agricultural vehicles, SPAFAX unbreakable mirrors provide reliable and proven performance, reducing costs for all agricultural activities, whilst our camera systems, lighting and reversing aids help to ensure a safer working environment for all.</p>
-            <p class="text-sm md:text-base text-black mb-6 md:mb-8">Our certified unbreakable mirrors are available in an assortment of sizes providing assured vision on the land and on the road.</p>
-            <button class="btn btn--secondary text-[10px] md:text-[11px] px-6 md:px-10 py-3 md:py-4 mb-8 md:mb-16">Learn more</button>
-            <div class="flex items-center gap-4">
-              <button type="button" class="cursor-pointer">
+          <div>
+            <div class="swiper sector-content-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <svg class="w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 shrink-0" xmlns="http://www.w3.org/2000/svg" width="82" height="70" viewBox="0 0 82 70" fill="none">
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044Z" fill="url(#paint0_linear_646_6502)" fill-opacity="0.3" />
+                    <path d="M52.5867 55.8044H49.425V47.9368C49.425 40.6204 55.377 34.6707 62.6912 34.6707H65.8528V42.5383C65.8528 49.8547 59.9008 55.8044 52.5867 55.8044ZM50.3362 54.8933H52.5867C59.3997 54.8933 64.9417 49.3513 64.9417 42.5383V35.5818H62.6912C55.8782 35.5818 50.3362 41.1238 50.3362 47.9368V54.8933Z" fill="#0D0002" />
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044ZM34.8447 35.5818V42.5383C34.8447 49.3513 40.3867 54.8933 47.1997 54.8933H49.4502V47.9368C49.4502 41.1238 43.9082 35.5818 37.0952 35.5818H34.8447Z" fill="#0D0002" />
+                    <path d="M34.8447 15.9377H33.9336V40.8891H34.8447V15.9377Z" fill="#0D0002" />
+                    <path d="M65.8532 15.9377H64.942V40.8891H65.8532V15.9377Z" fill="#0D0002" />
+                    <path d="M41.0043 35.2927L40.1091 35.1241C40.1182 35.0717 41.0977 29.8988 42.74 24.7919C44.9996 17.7625 47.4119 14.2 49.9084 14.2C52.4049 14.2 54.8125 17.7648 57.063 24.7919C58.6985 29.8988 59.6712 35.0717 59.6803 35.1241L58.7851 35.2904C58.776 35.2403 57.8125 30.1152 56.1929 25.0629C54.1383 18.644 51.906 15.1111 49.9084 15.1111C47.9107 15.1111 45.6739 18.6463 43.6102 25.0629C41.9861 30.1152 41.0157 35.2403 41.0043 35.2904V35.2927Z" fill="#0D0002" />
+                    <path d="M50.3363 0.382568H49.4251L49.425 69.4161H50.3362L50.3363 0.382568Z" fill="#0D0002" />
+                    <g opacity="0.22">
+                      <path d="M49.8939 9.5669C62.3218 9.5669 72.4331 19.6782 72.4331 32.1061C72.4331 44.5339 62.3218 54.6452 49.8939 54.6452C37.466 54.6452 27.3547 44.5339 27.3547 32.1061C27.3547 19.6782 37.466 9.5669 49.8939 9.5669ZM49.8939 0.455566C32.4138 0.455566 18.2434 14.626 18.2434 32.1061C18.2434 49.5862 32.4138 63.7566 49.8939 63.7566C67.374 63.7566 81.5444 49.5862 81.5444 32.1061C81.5444 14.626 67.3717 0.455566 49.8939 0.455566Z" fill="url(#paint1_linear_646_6502)" />
+                    </g>
+                    <path d="M49.8928 68.9825C11.2801 68.9825 19.5233 31.2371 0 31.2371" stroke="#0D0002" stroke-width="1.2" />
+                    <path d="M49.8939 64.2099C32.1906 64.2099 17.7878 49.8071 17.7878 32.1061C17.7878 14.405 32.1906 0 49.8939 0C67.5972 0 82 14.4027 82 32.1061C82 49.8094 67.5972 64.2121 49.8939 64.2121V64.2099ZM49.8939 0.911134C32.6917 0.911134 18.699 14.9039 18.699 32.1061C18.699 49.3083 32.6917 63.301 49.8939 63.301C67.0961 63.301 81.0888 49.3083 81.0888 32.1061C81.0888 14.9039 67.0938 0.911134 49.8939 0.911134Z" fill="#0D0002" />
+                    <defs>
+                      <linearGradient id="paint0_linear_646_6502" x1="42.1475" y1="34.6707" x2="42.0835" y2="52.4958" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="1" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_646_6502" x1="18.2434" y1="32.1061" x2="81.5421" y2="32.1061" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="0.65" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <h3 class="text-[10px] md:text-xs text-spafax-red mb-4 md:mb-6">Reliable and proven performance</h3>
+                  <h2 class="text-xl md:text-2xl text-black mb-4 md:mb-8">Bus, Coach & PSV</h2>
+                  <p class="text-sm md:text-base text-black mb-3 md:mb-4">The natural choice for agricultural vehicles, SPAFAX unbreakable mirrors provide reliable and proven performance, reducing costs for all agricultural activities, whilst our camera systems, lighting and reversing aids help to ensure a safer working environment for all.</p>
+                  <p class="text-sm md:text-base text-black mb-6 md:mb-8">Our certified unbreakable mirrors are available in an assortment of sizes providing assured vision on the land and on the road.</p>
+                  <button class="btn btn--secondary text-[10px] md:text-[11px] px-6 md:px-10 py-3 md:py-4 mb-8 md:mb-16">Learn more</button>
+                </div>
+                <div class="swiper-slide">
+                  <svg class="w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 shrink-0" xmlns="http://www.w3.org/2000/svg" width="82" height="70" viewBox="0 0 82 70" fill="none">
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044Z" fill="url(#paint0_linear_646_6502)" fill-opacity="0.3" />
+                    <path d="M52.5867 55.8044H49.425V47.9368C49.425 40.6204 55.377 34.6707 62.6912 34.6707H65.8528V42.5383C65.8528 49.8547 59.9008 55.8044 52.5867 55.8044ZM50.3362 54.8933H52.5867C59.3997 54.8933 64.9417 49.3513 64.9417 42.5383V35.5818H62.6912C55.8782 35.5818 50.3362 41.1238 50.3362 47.9368V54.8933Z" fill="#0D0002" />
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044ZM34.8447 35.5818V42.5383C34.8447 49.3513 40.3867 54.8933 47.1997 54.8933H49.4502V47.9368C49.4502 41.1238 43.9082 35.5818 37.0952 35.5818H34.8447Z" fill="#0D0002" />
+                    <path d="M34.8447 15.9377H33.9336V40.8891H34.8447V15.9377Z" fill="#0D0002" />
+                    <path d="M65.8532 15.9377H64.942V40.8891H65.8532V15.9377Z" fill="#0D0002" />
+                    <path d="M41.0043 35.2927L40.1091 35.1241C40.1182 35.0717 41.0977 29.8988 42.74 24.7919C44.9996 17.7625 47.4119 14.2 49.9084 14.2C52.4049 14.2 54.8125 17.7648 57.063 24.7919C58.6985 29.8988 59.6712 35.0717 59.6803 35.1241L58.7851 35.2904C58.776 35.2403 57.8125 30.1152 56.1929 25.0629C54.1383 18.644 51.906 15.1111 49.9084 15.1111C47.9107 15.1111 45.6739 18.6463 43.6102 25.0629C41.9861 30.1152 41.0157 35.2403 41.0043 35.2904V35.2927Z" fill="#0D0002" />
+                    <path d="M50.3363 0.382568H49.4251L49.425 69.4161H50.3362L50.3363 0.382568Z" fill="#0D0002" />
+                    <g opacity="0.22">
+                      <path d="M49.8939 9.5669C62.3218 9.5669 72.4331 19.6782 72.4331 32.1061C72.4331 44.5339 62.3218 54.6452 49.8939 54.6452C37.466 54.6452 27.3547 44.5339 27.3547 32.1061C27.3547 19.6782 37.466 9.5669 49.8939 9.5669ZM49.8939 0.455566C32.4138 0.455566 18.2434 14.626 18.2434 32.1061C18.2434 49.5862 32.4138 63.7566 49.8939 63.7566C67.374 63.7566 81.5444 49.5862 81.5444 32.1061C81.5444 14.626 67.3717 0.455566 49.8939 0.455566Z" fill="url(#paint1_linear_646_6502)" />
+                    </g>
+                    <path d="M49.8928 68.9825C11.2801 68.9825 19.5233 31.2371 0 31.2371" stroke="#0D0002" stroke-width="1.2" />
+                    <path d="M49.8939 64.2099C32.1906 64.2099 17.7878 49.8071 17.7878 32.1061C17.7878 14.405 32.1906 0 49.8939 0C67.5972 0 82 14.4027 82 32.1061C82 49.8094 67.5972 64.2121 49.8939 64.2121V64.2099ZM49.8939 0.911134C32.6917 0.911134 18.699 14.9039 18.699 32.1061C18.699 49.3083 32.6917 63.301 49.8939 63.301C67.0961 63.301 81.0888 49.3083 81.0888 32.1061C81.0888 14.9039 67.0938 0.911134 49.8939 0.911134Z" fill="#0D0002" />
+                    <defs>
+                      <linearGradient id="paint0_linear_646_6502" x1="42.1475" y1="34.6707" x2="42.0835" y2="52.4958" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="1" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_646_6502" x1="18.2434" y1="32.1061" x2="81.5421" y2="32.1061" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="0.65" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <h3 class="text-[10px] md:text-xs text-spafax-red mb-4 md:mb-6">Reliable and proven performance</h3>
+                  <h2 class="text-xl md:text-2xl text-black mb-4 md:mb-8">Truck & HGV</h2>
+                  <p class="text-sm md:text-base text-black mb-3 md:mb-4">The natural choice for agricultural vehicles, SPAFAX unbreakable mirrors provide reliable and proven performance, reducing costs for all agricultural activities, whilst our camera systems, lighting and reversing aids help to ensure a safer working environment for all.</p>
+                  <p class="text-sm md:text-base text-black mb-6 md:mb-8">Our certified unbreakable mirrors are available in an assortment of sizes providing assured vision on the land and on the road.</p>
+                  <button class="btn btn--secondary text-[10px] md:text-[11px] px-6 md:px-10 py-3 md:py-4 mb-8 md:mb-16">Learn more</button>
+                </div>
+                <div class="swiper-slide">
+                  <svg class="w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 shrink-0" xmlns="http://www.w3.org/2000/svg" width="82" height="70" viewBox="0 0 82 70" fill="none">
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044Z" fill="url(#paint0_linear_646_6502)" fill-opacity="0.3" />
+                    <path d="M52.5867 55.8044H49.425V47.9368C49.425 40.6204 55.377 34.6707 62.6912 34.6707H65.8528V42.5383C65.8528 49.8547 59.9008 55.8044 52.5867 55.8044ZM50.3362 54.8933H52.5867C59.3997 54.8933 64.9417 49.3513 64.9417 42.5383V35.5818H62.6912C55.8782 35.5818 50.3362 41.1238 50.3362 47.9368V54.8933Z" fill="#0D0002" />
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044ZM34.8447 35.5818V42.5383C34.8447 49.3513 40.3867 54.8933 47.1997 54.8933H49.4502V47.9368C49.4502 41.1238 43.9082 35.5818 37.0952 35.5818H34.8447Z" fill="#0D0002" />
+                    <path d="M34.8447 15.9377H33.9336V40.8891H34.8447V15.9377Z" fill="#0D0002" />
+                    <path d="M65.8532 15.9377H64.942V40.8891H65.8532V15.9377Z" fill="#0D0002" />
+                    <path d="M41.0043 35.2927L40.1091 35.1241C40.1182 35.0717 41.0977 29.8988 42.74 24.7919C44.9996 17.7625 47.4119 14.2 49.9084 14.2C52.4049 14.2 54.8125 17.7648 57.063 24.7919C58.6985 29.8988 59.6712 35.0717 59.6803 35.1241L58.7851 35.2904C58.776 35.2403 57.8125 30.1152 56.1929 25.0629C54.1383 18.644 51.906 15.1111 49.9084 15.1111C47.9107 15.1111 45.6739 18.6463 43.6102 25.0629C41.9861 30.1152 41.0157 35.2403 41.0043 35.2904V35.2927Z" fill="#0D0002" />
+                    <path d="M50.3363 0.382568H49.4251L49.425 69.4161H50.3362L50.3363 0.382568Z" fill="#0D0002" />
+                    <g opacity="0.22">
+                      <path d="M49.8939 9.5669C62.3218 9.5669 72.4331 19.6782 72.4331 32.1061C72.4331 44.5339 62.3218 54.6452 49.8939 54.6452C37.466 54.6452 27.3547 44.5339 27.3547 32.1061C27.3547 19.6782 37.466 9.5669 49.8939 9.5669ZM49.8939 0.455566C32.4138 0.455566 18.2434 14.626 18.2434 32.1061C18.2434 49.5862 32.4138 63.7566 49.8939 63.7566C67.374 63.7566 81.5444 49.5862 81.5444 32.1061C81.5444 14.626 67.3717 0.455566 49.8939 0.455566Z" fill="url(#paint1_linear_646_6502)" />
+                    </g>
+                    <path d="M49.8928 68.9825C11.2801 68.9825 19.5233 31.2371 0 31.2371" stroke="#0D0002" stroke-width="1.2" />
+                    <path d="M49.8939 64.2099C32.1906 64.2099 17.7878 49.8071 17.7878 32.1061C17.7878 14.405 32.1906 0 49.8939 0C67.5972 0 82 14.4027 82 32.1061C82 49.8094 67.5972 64.2121 49.8939 64.2121V64.2099ZM49.8939 0.911134C32.6917 0.911134 18.699 14.9039 18.699 32.1061C18.699 49.3083 32.6917 63.301 49.8939 63.301C67.0961 63.301 81.0888 49.3083 81.0888 32.1061C81.0888 14.9039 67.0938 0.911134 49.8939 0.911134Z" fill="#0D0002" />
+                    <defs>
+                      <linearGradient id="paint0_linear_646_6502" x1="42.1475" y1="34.6707" x2="42.0835" y2="52.4958" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="1" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_646_6502" x1="18.2434" y1="32.1061" x2="81.5421" y2="32.1061" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="0.65" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <h3 class="text-[10px] md:text-xs text-spafax-red mb-4 md:mb-6">Reliable and proven performance</h3>
+                  <h2 class="text-xl md:text-2xl text-black mb-4 md:mb-8">Agriculture</h2>
+                  <p class="text-sm md:text-base text-black mb-3 md:mb-4">The natural choice for agricultural vehicles, SPAFAX unbreakable mirrors provide reliable and proven performance, reducing costs for all agricultural activities, whilst our camera systems, lighting and reversing aids help to ensure a safer working environment for all.</p>
+                  <p class="text-sm md:text-base text-black mb-6 md:mb-8">Our certified unbreakable mirrors are available in an assortment of sizes providing assured vision on the land and on the road.</p>
+                  <button class="btn btn--secondary text-[10px] md:text-[11px] px-6 md:px-10 py-3 md:py-4 mb-8 md:mb-16">Learn more</button>
+                </div>
+                <div class="swiper-slide">
+                  <svg class="w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 shrink-0" xmlns="http://www.w3.org/2000/svg" width="82" height="70" viewBox="0 0 82 70" fill="none">
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044Z" fill="url(#paint0_linear_646_6502)" fill-opacity="0.3" />
+                    <path d="M52.5867 55.8044H49.425V47.9368C49.425 40.6204 55.377 34.6707 62.6912 34.6707H65.8528V42.5383C65.8528 49.8547 59.9008 55.8044 52.5867 55.8044ZM50.3362 54.8933H52.5867C59.3997 54.8933 64.9417 49.3513 64.9417 42.5383V35.5818H62.6912C55.8782 35.5818 50.3362 41.1238 50.3362 47.9368V54.8933Z" fill="#0D0002" />
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044ZM34.8447 35.5818V42.5383C34.8447 49.3513 40.3867 54.8933 47.1997 54.8933H49.4502V47.9368C49.4502 41.1238 43.9082 35.5818 37.0952 35.5818H34.8447Z" fill="#0D0002" />
+                    <path d="M34.8447 15.9377H33.9336V40.8891H34.8447V15.9377Z" fill="#0D0002" />
+                    <path d="M65.8532 15.9377H64.942V40.8891H65.8532V15.9377Z" fill="#0D0002" />
+                    <path d="M41.0043 35.2927L40.1091 35.1241C40.1182 35.0717 41.0977 29.8988 42.74 24.7919C44.9996 17.7625 47.4119 14.2 49.9084 14.2C52.4049 14.2 54.8125 17.7648 57.063 24.7919C58.6985 29.8988 59.6712 35.0717 59.6803 35.1241L58.7851 35.2904C58.776 35.2403 57.8125 30.1152 56.1929 25.0629C54.1383 18.644 51.906 15.1111 49.9084 15.1111C47.9107 15.1111 45.6739 18.6463 43.6102 25.0629C41.9861 30.1152 41.0157 35.2403 41.0043 35.2904V35.2927Z" fill="#0D0002" />
+                    <path d="M50.3363 0.382568H49.4251L49.425 69.4161H50.3362L50.3363 0.382568Z" fill="#0D0002" />
+                    <g opacity="0.22">
+                      <path d="M49.8939 9.5669C62.3218 9.5669 72.4331 19.6782 72.4331 32.1061C72.4331 44.5339 62.3218 54.6452 49.8939 54.6452C37.466 54.6452 27.3547 44.5339 27.3547 32.1061C27.3547 19.6782 37.466 9.5669 49.8939 9.5669ZM49.8939 0.455566C32.4138 0.455566 18.2434 14.626 18.2434 32.1061C18.2434 49.5862 32.4138 63.7566 49.8939 63.7566C67.374 63.7566 81.5444 49.5862 81.5444 32.1061C81.5444 14.626 67.3717 0.455566 49.8939 0.455566Z" fill="url(#paint1_linear_646_6502)" />
+                    </g>
+                    <path d="M49.8928 68.9825C11.2801 68.9825 19.5233 31.2371 0 31.2371" stroke="#0D0002" stroke-width="1.2" />
+                    <path d="M49.8939 64.2099C32.1906 64.2099 17.7878 49.8071 17.7878 32.1061C17.7878 14.405 32.1906 0 49.8939 0C67.5972 0 82 14.4027 82 32.1061C82 49.8094 67.5972 64.2121 49.8939 64.2121V64.2099ZM49.8939 0.911134C32.6917 0.911134 18.699 14.9039 18.699 32.1061C18.699 49.3083 32.6917 63.301 49.8939 63.301C67.0961 63.301 81.0888 49.3083 81.0888 32.1061C81.0888 14.9039 67.0938 0.911134 49.8939 0.911134Z" fill="#0D0002" />
+                    <defs>
+                      <linearGradient id="paint0_linear_646_6502" x1="42.1475" y1="34.6707" x2="42.0835" y2="52.4958" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="1" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_646_6502" x1="18.2434" y1="32.1061" x2="81.5421" y2="32.1061" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="0.65" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <h3 class="text-[10px] md:text-xs text-spafax-red mb-4 md:mb-6">Reliable and proven performance</h3>
+                  <h2 class="text-xl md:text-2xl text-black mb-4 md:mb-8">Construction</h2>
+                  <p class="text-sm md:text-base text-black mb-3 md:mb-4">The natural choice for agricultural vehicles, SPAFAX unbreakable mirrors provide reliable and proven performance, reducing costs for all agricultural activities, whilst our camera systems, lighting and reversing aids help to ensure a safer working environment for all.</p>
+                  <p class="text-sm md:text-base text-black mb-6 md:mb-8">Our certified unbreakable mirrors are available in an assortment of sizes providing assured vision on the land and on the road.</p>
+                  <button class="btn btn--secondary text-[10px] md:text-[11px] px-6 md:px-10 py-3 md:py-4 mb-8 md:mb-16">Learn more</button>
+                </div>
+                <div class="swiper-slide">
+                  <svg class="w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 shrink-0" xmlns="http://www.w3.org/2000/svg" width="82" height="70" viewBox="0 0 82 70" fill="none">
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044Z" fill="url(#paint0_linear_646_6502)" fill-opacity="0.3" />
+                    <path d="M52.5867 55.8044H49.425V47.9368C49.425 40.6204 55.377 34.6707 62.6912 34.6707H65.8528V42.5383C65.8528 49.8547 59.9008 55.8044 52.5867 55.8044ZM50.3362 54.8933H52.5867C59.3997 54.8933 64.9417 49.3513 64.9417 42.5383V35.5818H62.6912C55.8782 35.5818 50.3362 41.1238 50.3362 47.9368V54.8933Z" fill="#0D0002" />
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044ZM34.8447 35.5818V42.5383C34.8447 49.3513 40.3867 54.8933 47.1997 54.8933H49.4502V47.9368C49.4502 41.1238 43.9082 35.5818 37.0952 35.5818H34.8447Z" fill="#0D0002" />
+                    <path d="M34.8447 15.9377H33.9336V40.8891H34.8447V15.9377Z" fill="#0D0002" />
+                    <path d="M65.8532 15.9377H64.942V40.8891H65.8532V15.9377Z" fill="#0D0002" />
+                    <path d="M41.0043 35.2927L40.1091 35.1241C40.1182 35.0717 41.0977 29.8988 42.74 24.7919C44.9996 17.7625 47.4119 14.2 49.9084 14.2C52.4049 14.2 54.8125 17.7648 57.063 24.7919C58.6985 29.8988 59.6712 35.0717 59.6803 35.1241L58.7851 35.2904C58.776 35.2403 57.8125 30.1152 56.1929 25.0629C54.1383 18.644 51.906 15.1111 49.9084 15.1111C47.9107 15.1111 45.6739 18.6463 43.6102 25.0629C41.9861 30.1152 41.0157 35.2403 41.0043 35.2904V35.2927Z" fill="#0D0002" />
+                    <path d="M50.3363 0.382568H49.4251L49.425 69.4161H50.3362L50.3363 0.382568Z" fill="#0D0002" />
+                    <g opacity="0.22">
+                      <path d="M49.8939 9.5669C62.3218 9.5669 72.4331 19.6782 72.4331 32.1061C72.4331 44.5339 62.3218 54.6452 49.8939 54.6452C37.466 54.6452 27.3547 44.5339 27.3547 32.1061C27.3547 19.6782 37.466 9.5669 49.8939 9.5669ZM49.8939 0.455566C32.4138 0.455566 18.2434 14.626 18.2434 32.1061C18.2434 49.5862 32.4138 63.7566 49.8939 63.7566C67.374 63.7566 81.5444 49.5862 81.5444 32.1061C81.5444 14.626 67.3717 0.455566 49.8939 0.455566Z" fill="url(#paint1_linear_646_6502)" />
+                    </g>
+                    <path d="M49.8928 68.9825C11.2801 68.9825 19.5233 31.2371 0 31.2371" stroke="#0D0002" stroke-width="1.2" />
+                    <path d="M49.8939 64.2099C32.1906 64.2099 17.7878 49.8071 17.7878 32.1061C17.7878 14.405 32.1906 0 49.8939 0C67.5972 0 82 14.4027 82 32.1061C82 49.8094 67.5972 64.2121 49.8939 64.2121V64.2099ZM49.8939 0.911134C32.6917 0.911134 18.699 14.9039 18.699 32.1061C18.699 49.3083 32.6917 63.301 49.8939 63.301C67.0961 63.301 81.0888 49.3083 81.0888 32.1061C81.0888 14.9039 67.0938 0.911134 49.8939 0.911134Z" fill="#0D0002" />
+                    <defs>
+                      <linearGradient id="paint0_linear_646_6502" x1="42.1475" y1="34.6707" x2="42.0835" y2="52.4958" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="1" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_646_6502" x1="18.2434" y1="32.1061" x2="81.5421" y2="32.1061" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="0.65" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <h3 class="text-[10px] md:text-xs text-spafax-red mb-4 md:mb-6">Reliable and proven performance</h3>
+                  <h2 class="text-xl md:text-2xl text-black mb-4 md:mb-8">Forklift materials Handling</h2>
+                  <p class="text-sm md:text-base text-black mb-3 md:mb-4">The natural choice for agricultural vehicles, SPAFAX unbreakable mirrors provide reliable and proven performance, reducing costs for all agricultural activities, whilst our camera systems, lighting and reversing aids help to ensure a safer working environment for all.</p>
+                  <p class="text-sm md:text-base text-black mb-6 md:mb-8">Our certified unbreakable mirrors are available in an assortment of sizes providing assured vision on the land and on the road.</p>
+                  <button class="btn btn--secondary text-[10px] md:text-[11px] px-6 md:px-10 py-3 md:py-4 mb-8 md:mb-16">Learn more</button>
+                </div>
+                <div class="swiper-slide">
+                  <svg class="w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 shrink-0" xmlns="http://www.w3.org/2000/svg" width="82" height="70" viewBox="0 0 82 70" fill="none">
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044Z" fill="url(#paint0_linear_646_6502)" fill-opacity="0.3" />
+                    <path d="M52.5867 55.8044H49.425V47.9368C49.425 40.6204 55.377 34.6707 62.6912 34.6707H65.8528V42.5383C65.8528 49.8547 59.9008 55.8044 52.5867 55.8044ZM50.3362 54.8933H52.5867C59.3997 54.8933 64.9417 49.3513 64.9417 42.5383V35.5818H62.6912C55.8782 35.5818 50.3362 41.1238 50.3362 47.9368V54.8933Z" fill="#0D0002" />
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044ZM34.8447 35.5818V42.5383C34.8447 49.3513 40.3867 54.8933 47.1997 54.8933H49.4502V47.9368C49.4502 41.1238 43.9082 35.5818 37.0952 35.5818H34.8447Z" fill="#0D0002" />
+                    <path d="M34.8447 15.9377H33.9336V40.8891H34.8447V15.9377Z" fill="#0D0002" />
+                    <path d="M65.8532 15.9377H64.942V40.8891H65.8532V15.9377Z" fill="#0D0002" />
+                    <path d="M41.0043 35.2927L40.1091 35.1241C40.1182 35.0717 41.0977 29.8988 42.74 24.7919C44.9996 17.7625 47.4119 14.2 49.9084 14.2C52.4049 14.2 54.8125 17.7648 57.063 24.7919C58.6985 29.8988 59.6712 35.0717 59.6803 35.1241L58.7851 35.2904C58.776 35.2403 57.8125 30.1152 56.1929 25.0629C54.1383 18.644 51.906 15.1111 49.9084 15.1111C47.9107 15.1111 45.6739 18.6463 43.6102 25.0629C41.9861 30.1152 41.0157 35.2403 41.0043 35.2904V35.2927Z" fill="#0D0002" />
+                    <path d="M50.3363 0.382568H49.4251L49.425 69.4161H50.3362L50.3363 0.382568Z" fill="#0D0002" />
+                    <g opacity="0.22">
+                      <path d="M49.8939 9.5669C62.3218 9.5669 72.4331 19.6782 72.4331 32.1061C72.4331 44.5339 62.3218 54.6452 49.8939 54.6452C37.466 54.6452 27.3547 44.5339 27.3547 32.1061C27.3547 19.6782 37.466 9.5669 49.8939 9.5669ZM49.8939 0.455566C32.4138 0.455566 18.2434 14.626 18.2434 32.1061C18.2434 49.5862 32.4138 63.7566 49.8939 63.7566C67.374 63.7566 81.5444 49.5862 81.5444 32.1061C81.5444 14.626 67.3717 0.455566 49.8939 0.455566Z" fill="url(#paint1_linear_646_6502)" />
+                    </g>
+                    <path d="M49.8928 68.9825C11.2801 68.9825 19.5233 31.2371 0 31.2371" stroke="#0D0002" stroke-width="1.2" />
+                    <path d="M49.8939 64.2099C32.1906 64.2099 17.7878 49.8071 17.7878 32.1061C17.7878 14.405 32.1906 0 49.8939 0C67.5972 0 82 14.4027 82 32.1061C82 49.8094 67.5972 64.2121 49.8939 64.2121V64.2099ZM49.8939 0.911134C32.6917 0.911134 18.699 14.9039 18.699 32.1061C18.699 49.3083 32.6917 63.301 49.8939 63.301C67.0961 63.301 81.0888 49.3083 81.0888 32.1061C81.0888 14.9039 67.0938 0.911134 49.8939 0.911134Z" fill="#0D0002" />
+                    <defs>
+                      <linearGradient id="paint0_linear_646_6502" x1="42.1475" y1="34.6707" x2="42.0835" y2="52.4958" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="1" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_646_6502" x1="18.2434" y1="32.1061" x2="81.5421" y2="32.1061" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="0.65" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <h3 class="text-[10px] md:text-xs text-spafax-red mb-4 md:mb-6">Reliable and proven performance</h3>
+                  <h2 class="text-xl md:text-2xl text-black mb-4 md:mb-8">Airport GSE</h2>
+                  <p class="text-sm md:text-base text-black mb-3 md:mb-4">The natural choice for agricultural vehicles, SPAFAX unbreakable mirrors provide reliable and proven performance, reducing costs for all agricultural activities, whilst our camera systems, lighting and reversing aids help to ensure a safer working environment for all.</p>
+                  <p class="text-sm md:text-base text-black mb-6 md:mb-8">Our certified unbreakable mirrors are available in an assortment of sizes providing assured vision on the land and on the road.</p>
+                  <button class="btn btn--secondary text-[10px] md:text-[11px] px-6 md:px-10 py-3 md:py-4 mb-8 md:mb-16">Learn more</button>
+                </div>
+                <div class="swiper-slide">
+                  <svg class="w-16 h-16 md:w-20 md:h-20 mb-6 md:mb-8 shrink-0" xmlns="http://www.w3.org/2000/svg" width="82" height="70" viewBox="0 0 82 70" fill="none">
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044Z" fill="url(#paint0_linear_646_6502)" fill-opacity="0.3" />
+                    <path d="M52.5867 55.8044H49.425V47.9368C49.425 40.6204 55.377 34.6707 62.6912 34.6707H65.8528V42.5383C65.8528 49.8547 59.9008 55.8044 52.5867 55.8044ZM50.3362 54.8933H52.5867C59.3997 54.8933 64.9417 49.3513 64.9417 42.5383V35.5818H62.6912C55.8782 35.5818 50.3362 41.1238 50.3362 47.9368V54.8933Z" fill="#0D0002" />
+                    <path d="M50.3613 55.8044H47.1997C39.8833 55.8044 33.9336 49.8524 33.9336 42.5383V34.6707H37.0952C44.4116 34.6707 50.3613 40.6226 50.3613 47.9368V55.8044ZM34.8447 35.5818V42.5383C34.8447 49.3513 40.3867 54.8933 47.1997 54.8933H49.4502V47.9368C49.4502 41.1238 43.9082 35.5818 37.0952 35.5818H34.8447Z" fill="#0D0002" />
+                    <path d="M34.8447 15.9377H33.9336V40.8891H34.8447V15.9377Z" fill="#0D0002" />
+                    <path d="M65.8532 15.9377H64.942V40.8891H65.8532V15.9377Z" fill="#0D0002" />
+                    <path d="M41.0043 35.2927L40.1091 35.1241C40.1182 35.0717 41.0977 29.8988 42.74 24.7919C44.9996 17.7625 47.4119 14.2 49.9084 14.2C52.4049 14.2 54.8125 17.7648 57.063 24.7919C58.6985 29.8988 59.6712 35.0717 59.6803 35.1241L58.7851 35.2904C58.776 35.2403 57.8125 30.1152 56.1929 25.0629C54.1383 18.644 51.906 15.1111 49.9084 15.1111C47.9107 15.1111 45.6739 18.6463 43.6102 25.0629C41.9861 30.1152 41.0157 35.2403 41.0043 35.2904V35.2927Z" fill="#0D0002" />
+                    <path d="M50.3363 0.382568H49.4251L49.425 69.4161H50.3362L50.3363 0.382568Z" fill="#0D0002" />
+                    <g opacity="0.22">
+                      <path d="M49.8939 9.5669C62.3218 9.5669 72.4331 19.6782 72.4331 32.1061C72.4331 44.5339 62.3218 54.6452 49.8939 54.6452C37.466 54.6452 27.3547 44.5339 27.3547 32.1061C27.3547 19.6782 37.466 9.5669 49.8939 9.5669ZM49.8939 0.455566C32.4138 0.455566 18.2434 14.626 18.2434 32.1061C18.2434 49.5862 32.4138 63.7566 49.8939 63.7566C67.374 63.7566 81.5444 49.5862 81.5444 32.1061C81.5444 14.626 67.3717 0.455566 49.8939 0.455566Z" fill="url(#paint1_linear_646_6502)" />
+                    </g>
+                    <path d="M49.8928 68.9825C11.2801 68.9825 19.5233 31.2371 0 31.2371" stroke="#0D0002" stroke-width="1.2" />
+                    <path d="M49.8939 64.2099C32.1906 64.2099 17.7878 49.8071 17.7878 32.1061C17.7878 14.405 32.1906 0 49.8939 0C67.5972 0 82 14.4027 82 32.1061C82 49.8094 67.5972 64.2121 49.8939 64.2121V64.2099ZM49.8939 0.911134C32.6917 0.911134 18.699 14.9039 18.699 32.1061C18.699 49.3083 32.6917 63.301 49.8939 63.301C67.0961 63.301 81.0888 49.3083 81.0888 32.1061C81.0888 14.9039 67.0938 0.911134 49.8939 0.911134Z" fill="#0D0002" />
+                    <defs>
+                      <linearGradient id="paint0_linear_646_6502" x1="42.1475" y1="34.6707" x2="42.0835" y2="52.4958" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="1" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_646_6502" x1="18.2434" y1="32.1061" x2="81.5421" y2="32.1061" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#BD0A27" />
+                        <stop offset="0.65" stop-color="#BD0A27" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <h3 class="text-[10px] md:text-xs text-spafax-red mb-4 md:mb-6">Reliable and proven performance</h3>
+                  <h2 class="text-xl md:text-2xl text-black mb-4 md:mb-8">Security & Emergency Services</h2>
+                  <p class="text-sm md:text-base text-black mb-3 md:mb-4">The natural choice for agricultural vehicles, SPAFAX unbreakable mirrors provide reliable and proven performance, reducing costs for all agricultural activities, whilst our camera systems, lighting and reversing aids help to ensure a safer working environment for all.</p>
+                  <p class="text-sm md:text-base text-black mb-6 md:mb-8">Our certified unbreakable mirrors are available in an assortment of sizes providing assured vision on the land and on the road.</p>
+                  <button class="btn btn--secondary text-[10px] md:text-[11px] px-6 md:px-10 py-3 md:py-4 mb-8 md:mb-16">Learn more</button>
+                </div>
+              </div>
+            </div>
+            <div class="sector-navigation flex items-center gap-4">
+              <button type="button" class="previous-button cursor-pointer">
                 <svg class="shrink-0" width="24" height="19" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12.0136 18.1875L1.56201 9.47782L12.0136 0.768145" stroke="#0D0002" stroke-width="2" />
                   <path d="M23.0459 9.47778L1.56203 9.47778" stroke="#0D0002" stroke-width="2" />
@@ -413,7 +605,7 @@
               <svg class="shrink-0" width="1" height="24" viewBox="0 0 1 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="0.5" y1="2.18557e-08" x2="0.499999" y2="23.8065" stroke="#8C8C8C" stroke-opacity="0.5" />
               </svg>
-              <button type="button" class="cursor-pointer">
+              <button type="button" class="next-button cursor-pointer">
                 <svg class="shrink-0" width="24" height="19" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.0323 0.76831L21.4839 9.47799L11.0323 18.1877" stroke="#0D0002" stroke-width="2" />
                   <path d="M0 9.47778H21.4839" stroke="#0D0002" stroke-width="2" />
@@ -422,16 +614,100 @@
             </div>
           </div>
           <div class="relative">
-            <div class="p-4 relative">
-              <svg class="absolute top-0 left-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0.5 18.5L0.499999 0.5L17.5 0.499999" stroke="var(--color-black)"></path>
-              </svg>
-              <div class="rounded-lg overflow-hidden">
-                <img class="w-full h-auto aspect-468/514 object-cover" src="./assets/agriculture.jpg" alt="Historical" />
+            <div class="swiper sector-image-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="p-4 relative">
+                    <svg class="absolute top-0 left-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.5 18.5L0.499999 0.5L17.5 0.499999" stroke="var(--color-black)"></path>
+                    </svg>
+                    <div class="rounded-lg overflow-hidden">
+                      <img class="w-full h-auto aspect-468/514 object-cover" src="./assets/bus-coach-psv.jpg" />
+                    </div>
+                    <svg class="absolute bottom-0 right-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 0L17 18L-5.80244e-07 18" stroke="var(--color-black)"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="p-4 relative">
+                    <svg class="absolute top-0 left-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.5 18.5L0.499999 0.5L17.5 0.499999" stroke="var(--color-black)"></path>
+                    </svg>
+                    <div class="rounded-lg overflow-hidden">
+                      <img class="w-full h-auto aspect-468/514 object-cover" src="./assets/truck-hgv.jpg" />
+                    </div>
+                    <svg class="absolute bottom-0 right-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 0L17 18L-5.80244e-07 18" stroke="var(--color-black)"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="p-4 relative">
+                    <svg class="absolute top-0 left-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.5 18.5L0.499999 0.5L17.5 0.499999" stroke="var(--color-black)"></path>
+                    </svg>
+                    <div class="rounded-lg overflow-hidden">
+                      <img class="w-full h-auto aspect-468/514 object-cover" src="./assets/agriculture.jpg" />
+                    </div>
+                    <svg class="absolute bottom-0 right-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 0L17 18L-5.80244e-07 18" stroke="var(--color-black)"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="p-4 relative">
+                    <svg class="absolute top-0 left-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.5 18.5L0.499999 0.5L17.5 0.499999" stroke="var(--color-black)"></path>
+                    </svg>
+                    <div class="rounded-lg overflow-hidden">
+                      <img class="w-full h-auto aspect-468/514 object-cover" src="./assets/construction.jpg" />
+                    </div>
+                    <svg class="absolute bottom-0 right-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 0L17 18L-5.80244e-07 18" stroke="var(--color-black)"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="p-4 relative">
+                    <svg class="absolute top-0 left-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.5 18.5L0.499999 0.5L17.5 0.499999" stroke="var(--color-black)"></path>
+                    </svg>
+                    <div class="rounded-lg overflow-hidden">
+                      <img class="w-full h-auto aspect-468/514 object-cover" src="./assets/forklift-materials-handling.jpg" />
+                    </div>
+                    <svg class="absolute bottom-0 right-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 0L17 18L-5.80244e-07 18" stroke="var(--color-black)"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="p-4 relative">
+                    <svg class="absolute top-0 left-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.5 18.5L0.499999 0.5L17.5 0.499999" stroke="var(--color-black)"></path>
+                    </svg>
+                    <div class="rounded-lg overflow-hidden">
+                      <img class="w-full h-auto aspect-468/514 object-cover" src="./assets/airport-gse.jpg" />
+                    </div>
+                    <svg class="absolute bottom-0 right-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 0L17 18L-5.80244e-07 18" stroke="var(--color-black)"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="p-4 relative">
+                    <svg class="absolute top-0 left-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.5 18.5L0.499999 0.5L17.5 0.499999" stroke="var(--color-black)"></path>
+                    </svg>
+                    <div class="rounded-lg overflow-hidden">
+                      <img class="w-full h-auto aspect-468/514 object-cover" src="./assets/security-emergency-services.jpg" />
+                    </div>
+                    <svg class="absolute bottom-0 right-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 0L17 18L-5.80244e-07 18" stroke="var(--color-black)"></path>
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <svg class="absolute bottom-0 right-0 shrink-0" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17 0L17 18L-5.80244e-07 18" stroke="var(--color-black)"></path>
-              </svg>
             </div>
           </div>
         </div>
