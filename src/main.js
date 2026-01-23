@@ -140,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
         trigger: timeLineElement,
         start: "top 80%",
         toggleActions: "play none none none",
-        markers: true,
       },
     });
 
