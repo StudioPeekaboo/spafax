@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
-  const heroSwiper = new Swiper(".swiper", {
+  const heroSwiper = new Swiper(".hero-swiper", {
     loop: true,
     speed: 2000,
     autoplay: true,
@@ -124,37 +124,68 @@ document.addEventListener("DOMContentLoaded", () => {
   updateNavigationButtons(sectorContentSwiper.activeIndex);
 
   // GSAP animation for established element
-  const timeLineElements = gsap.utils.toArray(".timeline");
+  const heritageElements = gsap.utils.toArray("[data-gsap-id='heritage']");
 
-  timeLineElements.forEach(timeLineElement => {
-    const line = timeLineElement.querySelector(".timeline__line");
-    const dot = timeLineElement.querySelector(".timeline__dot");
-    const text = timeLineElement.querySelector(".timeline__text");
+  heritageElements.forEach(heritageElement => {
+    const image = heritageElement.querySelector("[data-gsap-id='image']");
+    const topLeftIcon = heritageElement.querySelector("[data-gsap-id='top-left-icon']");
+    const bottomRightIcon = heritageElement.querySelector("[data-gsap-id='bottom-right-icon']");
+    const line = heritageElement.querySelector("[data-gsap-id='line']");
+    const dot = heritageElement.querySelector("[data-gsap-id='dot']");
+    const text = heritageElement.querySelector("[data-gsap-id='text']");
 
+    gsap.set(image, { scale: 0, opacity: 0 });
+    gsap.set(topLeftIcon, { opacity: 0 });
+    gsap.set(bottomRightIcon, { opacity: 0 });
     gsap.set(line, { scaleY: 0, transformOrigin: "top center" });
     gsap.set(dot, { opacity: 0 });
     gsap.set(text, { opacity: 0 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: timeLineElement,
-        start: "top 80%",
+        trigger: heritageElement,
+        start: "top center",
         toggleActions: "play none none none",
       },
     });
 
-    tl.to(line, {
-      scaleY: 1,
-      duration: 1.2,
-      ease: "power2.out",
+    // Image pops in fast with scale
+    tl.to(image, {
+      scale: 1,
+      opacity: 1,
+      duration: 0.8,
+      ease: "back.out(1.7)",
     })
+      // Top left and bottom right icons fade in at the same time
+      .to(
+        [topLeftIcon, bottomRightIcon],
+        {
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        ">-0.1"
+      )
+      // Line fills from top to bottom
+      .to(
+        line,
+        {
+          scaleY: 1,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "<"
+      )
+      // Dot and text appear instantly
       .to(dot, {
-        duration: 0.7,
         opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
       })
       .to(text, {
-        duration: 0.7,
         opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
       });
   });
 });
