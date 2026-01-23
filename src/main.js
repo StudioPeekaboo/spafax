@@ -1,5 +1,9 @@
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
   const heroSwiper = new Swiper(".swiper", {
@@ -118,4 +122,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize button states
   updateNavigationButtons(sectorContentSwiper.activeIndex);
+
+  // GSAP animation for established element
+  const timeLineElements = gsap.utils.toArray(".timeline");
+
+  timeLineElements.forEach(timeLineElement => {
+    const line = timeLineElement.querySelector(".timeline__line");
+    const dot = timeLineElement.querySelector(".timeline__dot");
+    const text = timeLineElement.querySelector(".timeline__text");
+
+    gsap.set(line, { scaleY: 0, transformOrigin: "top center" });
+    gsap.set(dot, { opacity: 0 });
+    gsap.set(text, { opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: timeLineElement,
+        start: "top 80%",
+        toggleActions: "play none none none",
+        markers: true,
+      },
+    });
+
+    tl.to(line, {
+      scaleY: 1,
+      duration: 1.2,
+      ease: "power2.out",
+    })
+      .to(dot, {
+        duration: 0.7,
+        opacity: 1,
+      })
+      .to(text, {
+        duration: 0.7,
+        opacity: 1,
+      });
+  });
 });
