@@ -2,17 +2,16 @@ import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Hero swiper
-  new Swiper(".swiper", {
+  const heroSwiper = new Swiper(".swiper", {
     loop: true,
-    speed: 1000,
+    speed: 2000,
+    autoplay: true,
     grabCursor: true,
+    parallax: true,
+    keyboard: true,
     pagination: {
       el: ".swiper-pagination",
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      clickable: true,
     },
   });
 
