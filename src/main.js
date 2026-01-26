@@ -188,4 +188,88 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "power2.out",
       });
   });
+
+  // Environment icon alternating color animation
+  const environmentIcon = document.querySelector("[data-gsap-id='environment-icon']");
+
+  if (environmentIcon) {
+    const leaves = environmentIcon.querySelector("[data-gsap-id='leaves']");
+    const smallCircle = environmentIcon.querySelector("[data-gsap-id='small-circle']");
+    const bigCircle = environmentIcon.querySelector("[data-gsap-id='big-circle']");
+
+    if (leaves && smallCircle && bigCircle) {
+      // Get all paths with red fill in the leaves
+      const redPaths = leaves.querySelectorAll("path[fill='#BD0A27']");
+
+      // Create alternating color animation: leaves vs circles
+      gsap.timeline({ repeat: -1, yoyo: true })
+        .to(redPaths, {
+          fill: "white",
+          duration: 1.5,
+          ease: "power2.inOut",
+        }, 0)
+        .to(smallCircle, {
+          fill: "#BD0A27",
+          duration: 1.5,
+          ease: "power2.inOut",
+        }, 0)
+        .to(bigCircle, {
+          stroke: "#BD0A27",
+          duration: 1.5,
+          ease: "power2.inOut",
+        }, 0);
+    }
+  }
+
+  // Export icon alternating color animation
+  const exportIcon = document.querySelector("[data-gsap-id='export-icon']");
+
+  if (exportIcon) {
+    // Get circles by data-gsap-id
+    const whiteCircles = exportIcon.querySelectorAll("[data-gsap-id='white-circle']");
+    const redCircles = exportIcon.querySelectorAll("[data-gsap-id='red-circle']");
+
+    // Create alternating color animation matching the leaf rotation speed (1.5s per step)
+    gsap.timeline({ repeat: -1, yoyo: true })
+      .to(whiteCircles, {
+        fill: "#BD0A27",
+        duration: 1.5,
+        ease: "power2.inOut",
+      }, 0)
+      .to(redCircles, {
+        fill: "white",
+        duration: 1.5,
+        ease: "power2.inOut",
+      }, 0);
+  }
+
+  // Globe icon alternating color animation
+  const globeIcon = document.querySelector("[data-gsap-id='globe-icon']");
+  
+  if (globeIcon) {
+    // Get longitude circles using data-gsap-id
+    const circles = globeIcon.querySelectorAll("[data-gsap-id='circle']");
+    
+    // Get latitude lines using data-gsap-id
+    const latLines = globeIcon.querySelectorAll("[data-gsap-id='lat-line']");
+
+    // Get the holder
+    const holder = globeIcon.querySelector("#holder");
+
+    // Combine circles and lines for the globe
+    const globeElements = [...circles, ...latLines];
+
+    // Create alternating color animation: globe vs holder
+    gsap.timeline({ repeat: -1, yoyo: true })
+      .to(globeElements, {
+        fill: "white",
+        duration: 1.5,
+        ease: "power2.inOut",
+      }, 0)
+      .to(holder, {
+        fill: "#BD0A27",
+        duration: 1.5,
+        ease: "power2.inOut",
+      }, 0);
+  }
 });
