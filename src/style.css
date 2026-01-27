@@ -71,10 +71,10 @@
   }
 
   .btn {
-    @apply inline-flex gap-2 items-center justify-center text-center bg-white text-black font-semibold font-science-gothic text-[11px] tracking-[0.2em] uppercase px-10 py-4 rounded-md cursor-pointer w-fit transition-transform active:scale-95;
+    @apply inline-flex gap-[10px] items-center justify-center text-center bg-white text-black font-semibold font-science-gothic text-[11px] tracking-[0.2em] uppercase px-[40px] py-[18px] rounded-[6px] cursor-pointer w-fit transition-transform duration-200 active:scale-95 border border-white hover:bg-black/30 hover:text-white;
 
     &.btn--secondary {
-      @apply bg-black text-white;
+      @apply bg-black text-white hover:bg-[#E1E1E1] hover:text-black border-[#E1E1E1];
     }
   }
 
@@ -92,7 +92,7 @@
   }
 
   .sector-tab {
-    @apply bg-white text-black font-science-gothic text-[11px] font-semibold tracking-[0.05em] uppercase px-6 py-3 rounded-full whitespace-nowrap cursor-pointer;
+    @apply bg-white text-black font-science-gothic text-[11px] font-semibold tracking-[0.05em] uppercase px-6 py-3 rounded-full whitespace-nowrap cursor-pointer hover:bg-[#E1E1E1];
 
     &.active {
       @apply bg-spafax-off-black text-white;
