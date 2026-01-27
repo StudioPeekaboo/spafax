@@ -1,11 +1,37 @@
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger, SplitText } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 document.addEventListener("DOMContentLoaded", () => {
+  const flickerAnimationElements = gsap.utils.toArray("[data-animation='flicker']");
+
+  flickerAnimationElements.forEach(flickerAnimationElement => {
+    const split = new SplitText(flickerAnimationElement, { type: "words, chars" });
+
+    gsap.set(split.words, { opacity: 0 });
+
+    gsap.to(split.words, {
+      keyframes: {
+        "0%": { opacity: 0 },
+        "10%": { opacity: 1 },
+        "20%": { opacity: 0 },
+        "50%": { opacity: 1 },
+        "60%": { opacity: 0 },
+        "100%": { opacity: 1 },
+        easeEach: "steps(1)",
+      },
+      duration: 0.2,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: flickerAnimationElement,
+        start: "top bottom",
+      },
+    });
+  });
+
   const heroSwiper = new Swiper(".hero-swiper", {
     loop: true,
     speed: 2000,
