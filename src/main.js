@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeEffect: {
       crossFade: true,
     },
-    spaceBetween: 0,
-    allowTouchMove: false,
     autoplay: true,
     keyboard: true,
     grabCursor: true,
