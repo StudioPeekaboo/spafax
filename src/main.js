@@ -9,10 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroSwiper = new Swiper(".hero-swiper", {
     loop: true,
     speed: 2000,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    spaceBetween: 0,
+    allowTouchMove: false,
     autoplay: true,
-    grabCursor: true,
-    parallax: true,
     keyboard: true,
+    grabCursor: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
