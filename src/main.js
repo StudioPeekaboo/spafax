@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dot = heritageElement.querySelector("[data-gsap-id='dot']");
     const text = heritageElement.querySelector("[data-gsap-id='text']");
 
-    gsap.set(image, { scale: 0, opacity: 0 });
+    gsap.set(image, { opacity: 0 });
     gsap.set(topLeftIcon, { opacity: 0 });
     gsap.set(bottomRightIcon, { opacity: 0 });
     gsap.set(line, { scaleY: 0, transformOrigin: "top center" });
@@ -179,23 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Image pops in fast with scale
-    tl.to(image, {
-      scale: 1,
+    tl.to([image, topLeftIcon, bottomRightIcon], {
       opacity: 1,
-      duration: 0.8,
-      ease: "back.out(1.7)",
+      duration: 1,
     })
-      // Top left and bottom right icons fade in at the same time
-      .to(
-        [topLeftIcon, bottomRightIcon],
-        {
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        ">-0.1"
-      )
-      // Line fills from top to bottom
       .to(
         line,
         {
