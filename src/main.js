@@ -202,22 +202,35 @@ document.addEventListener("DOMContentLoaded", () => {
       const redPaths = leaves.querySelectorAll("path[fill='#BD0A27']");
 
       // Create alternating color animation: leaves vs circles
-      gsap.timeline({ repeat: -1, yoyo: true })
-        .to(redPaths, {
-          fill: "white",
-          duration: 1.5,
-          ease: "power2.inOut",
-        }, 0)
-        .to(smallCircle, {
-          fill: "#BD0A27",
-          duration: 1.5,
-          ease: "power2.inOut",
-        }, 0)
-        .to(bigCircle, {
-          stroke: "#BD0A27",
-          duration: 1.5,
-          ease: "power2.inOut",
-        }, 0);
+      gsap
+        .timeline({ repeat: -1, yoyo: true })
+        .to(
+          redPaths,
+          {
+            fill: "white",
+            duration: 1.5,
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          smallCircle,
+          {
+            fill: "#BD0A27",
+            duration: 1.5,
+            ease: "power2.inOut",
+          },
+          0
+        )
+        .to(
+          bigCircle,
+          {
+            stroke: "#BD0A27",
+            duration: 1.5,
+            ease: "power2.inOut",
+          },
+          0
+        );
     }
   }
 
@@ -230,26 +243,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const redCircles = exportIcon.querySelectorAll("[data-gsap-id='red-circle']");
 
     // Create alternating color animation matching the leaf rotation speed (1.5s per step)
-    gsap.timeline({ repeat: -1, yoyo: true })
-      .to(whiteCircles, {
-        fill: "#BD0A27",
-        duration: 1.5,
-        ease: "power2.inOut",
-      }, 0)
-      .to(redCircles, {
-        fill: "white",
-        duration: 1.5,
-        ease: "power2.inOut",
-      }, 0);
+    gsap
+      .timeline({ repeat: -1, yoyo: true })
+      .to(
+        whiteCircles,
+        {
+          fill: "#BD0A27",
+          duration: 1.5,
+          ease: "power2.inOut",
+        },
+        0
+      )
+      .to(
+        redCircles,
+        {
+          fill: "white",
+          duration: 1.5,
+          ease: "power2.inOut",
+        },
+        0
+      );
   }
 
   // Globe icon alternating color animation
   const globeIcon = document.querySelector("[data-gsap-id='globe-icon']");
-  
+
   if (globeIcon) {
     // Get longitude circles using data-gsap-id
     const circles = globeIcon.querySelectorAll("[data-gsap-id='circle']");
-    
+
     // Get latitude lines using data-gsap-id
     const latLines = globeIcon.querySelectorAll("[data-gsap-id='lat-line']");
 
@@ -260,16 +282,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const globeElements = [...circles, ...latLines];
 
     // Create alternating color animation: globe vs holder
-    gsap.timeline({ repeat: -1, yoyo: true })
-      .to(globeElements, {
-        fill: "white",
-        duration: 1.5,
-        ease: "power2.inOut",
-      }, 0)
-      .to(holder, {
-        fill: "#BD0A27",
-        duration: 1.5,
-        ease: "power2.inOut",
-      }, 0);
+    gsap
+      .timeline({ repeat: -1, yoyo: true })
+      .to(
+        globeElements,
+        {
+          fill: "white",
+          duration: 1.5,
+          ease: "power2.inOut",
+        },
+        0
+      )
+      .to(
+        holder,
+        {
+          fill: "#BD0A27",
+          duration: 1.5,
+          ease: "power2.inOut",
+        },
+        0
+      );
   }
 });
