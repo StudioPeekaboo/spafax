@@ -1,11 +1,17 @@
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import { gsap } from "gsap";
-import { ScrollTrigger, SplitText } from "gsap/all";
+import { ScrollTrigger, SplitText, ScrollSmoother } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
 
 document.addEventListener("DOMContentLoaded", () => {
+  const smoother = ScrollSmoother.create({
+    smooth: 2,
+    effects: true,
+    normalizeScroll: true,
+  });
+
   const flickerAnimationElements = gsap.utils.toArray("[data-animation='flicker']");
 
   flickerAnimationElements.forEach(flickerAnimationElement => {
