@@ -6,11 +6,28 @@ import { ScrollTrigger, SplitText, ScrollSmoother } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
 
 document.addEventListener("DOMContentLoaded", () => {
-  ScrollSmoother.create({
+  const smoother = ScrollSmoother.create({
     smooth: 2,
     effects: true,
     normalizeScroll: true,
     wholePixels: true,
+  });
+
+  // Navigate to sections when clicking nav links (works with ScrollSmoother)
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const hash = link.getAttribute("href");
+    if (hash === "#") return;
+    const target = document.querySelector(hash);
+    if (!target) return;
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      smoother.scrollTo(target, true, "top top");
+      // Close mobile menu if open
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileMenu && mobileMenu.classList.contains("open")) {
+        mobileMenu.classList.remove("open");
+      }
+    });
   });
 
   const flickerElements = gsap.utils.toArray(".flicker");
