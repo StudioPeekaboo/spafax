@@ -387,6 +387,46 @@ document.addEventListener("DOMContentLoaded", () => {
       );
   }
 
+  // Products accordion: update image when an accordion is opened (GSAP animated)
+  const productsAccordionImage = document.getElementById("products-accordion-image");
+  const accordionItems = document.querySelectorAll(".accordion-item");
+
+  function updateAccordionImage(imageSrc) {
+    if (!productsAccordionImage || !imageSrc) return;
+    if (productsAccordionImage.src === new URL(imageSrc, window.location.href).href) return;
+
+    gsap.to(productsAccordionImage, {
+      opacity: 0,
+      duration: 0.2,
+      ease: "power2.in",
+      onComplete: () => {
+        productsAccordionImage.src = imageSrc;
+        const onLoad = () => {
+          productsAccordionImage.removeEventListener("load", onLoad);
+          gsap.to(productsAccordionImage, {
+            opacity: 1,
+            duration: 0.35,
+            ease: "power2.out",
+          });
+        };
+        if (productsAccordionImage.complete) {
+          onLoad();
+        } else {
+          productsAccordionImage.addEventListener("load", onLoad);
+        }
+      },
+    });
+  }
+
+  accordionItems.forEach(item => {
+    item.addEventListener("toggle", () => {
+      if (item.open) {
+        const imageSrc = item.getAttribute("data-accordion-image");
+        updateAccordionImage(imageSrc);
+      }
+    });
+  });
+
   const globeIcon = document.querySelector("[data-gsap-id='globe-icon']");
 
   if (globeIcon) {
