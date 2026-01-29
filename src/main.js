@@ -175,6 +175,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Drag-to-scroll for sector tabs container
+  const sectorTabsContainer = document.querySelector(".sector-tabs");
+  if (sectorTabsContainer) {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let hasDragged = false;
+
+    sectorTabsContainer.addEventListener("mousedown", e => {
+      isDown = true;
+      hasDragged = false;
+      sectorTabsContainer.classList.add("dragging");
+      startX = e.pageX;
+      scrollLeft = sectorTabsContainer.scrollLeft;
+    });
+
+    sectorTabsContainer.addEventListener("mousemove", e => {
+      if (!isDown) return;
+      e.preventDefault();
+      hasDragged = true;
+      const walk = (e.pageX - startX) * 1.2; // scroll speed multiplier
+      sectorTabsContainer.scrollLeft = scrollLeft - walk;
+      startX = e.pageX;
+      scrollLeft = sectorTabsContainer.scrollLeft;
+    });
+
+    sectorTabsContainer.addEventListener("mouseleave", () => {
+      isDown = false;
+      sectorTabsContainer.classList.remove("dragging");
+    });
+
+    sectorTabsContainer.addEventListener("mouseup", () => {
+      isDown = false;
+      sectorTabsContainer.classList.remove("dragging");
+      setTimeout(() => {
+        hasDragged = false;
+      }, 0);
+    });
+
+    sectorTabsContainer.addEventListener(
+      "click",
+      e => {
+        if (hasDragged) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      },
+      true
+    );
+  }
+
   if (previousButton) {
     previousButton.addEventListener("click", () => {
       if (!previousButton.disabled) {
