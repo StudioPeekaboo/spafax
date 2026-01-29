@@ -13,29 +13,60 @@ document.addEventListener("DOMContentLoaded", () => {
     wholePixels: true,
   });
 
-  const flickerAnimationElements = gsap.utils.toArray("[data-animation='flicker']");
+  const flickerElements = gsap.utils.toArray(".flicker");
+  const splitElements = gsap.utils.toArray(".split");
 
-  flickerAnimationElements.forEach(flickerAnimationElement => {
-    const split = new SplitText(flickerAnimationElement, { type: "words, chars" });
+  gsap.set(".split", { opacity: 1 });
 
-    gsap.set(split.words, { opacity: 0 });
+  document.fonts.ready.then(() => {
+    splitElements.forEach(splitElement => {
+      SplitText.create(splitElement, {
+        type: "words,lines",
+        mask: "lines",
+        linesClass: "line",
+        autoSplit: true,
+        onSplit: instance => {
+          return gsap.from(instance.lines, {
+            yPercent: 120,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: splitElement,
+              markers: true,
+              start: "top 85%",
+              end: "bottom 20%",
+            },
+          });
+        },
+      });
+    });
 
-    gsap.to(split.words, {
-      keyframes: {
-        "0%": { opacity: 0 },
-        "10%": { opacity: 1 },
-        "20%": { opacity: 0 },
-        "50%": { opacity: 1 },
-        "60%": { opacity: 0 },
-        "100%": { opacity: 1 },
-        easeEach: "steps(1)",
-      },
-      duration: 0.2,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: flickerAnimationElement,
-        start: "top bottom",
-      },
+    flickerElements.forEach(flickerElement => {
+      SplitText.create(flickerElement, {
+        type: "words, chars",
+        autoSplit: true,
+        onSplit: instance => {
+          return gsap.from(instance.words, {
+            opacity: 1,
+            stagger: 0.2,
+            duration: 0.2,
+            keyframes: {
+              "0%": { opacity: 0 },
+              "10%": { opacity: 1 },
+              "20%": { opacity: 0 },
+              "50%": { opacity: 1 },
+              "60%": { opacity: 0 },
+              "100%": { opacity: 1 },
+              easeEach: "steps(1)",
+            },
+            scrollTrigger: {
+              trigger: flickerElement,
+              start: "top 85%",
+              end: "bottom 20%",
+              markers: true,
+            },
+          });
+        },
+      });
     });
   });
 
@@ -85,7 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextButton = document.querySelector(".next-button");
   const totalSlides = sectorContentSwiper.slides.length;
 
-  // Function to update active tab
   function updateActiveTab(activeIndex) {
     sectorTabs.forEach((tab, index) => {
       if (index === activeIndex) {
@@ -96,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Function to update navigation button states
   function updateNavigationButtons(activeIndex) {
     if (previousButton) {
       if (activeIndex === 0) {
@@ -119,23 +148,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Add click handlers to tabs
   sectorTabs.forEach(tab => {
     tab.addEventListener("click", () => {
       const slideIndex = parseInt(tab.getAttribute("data-slide"));
       sectorContentSwiper.slideTo(slideIndex);
-      // Image swiper will sync automatically via controller
-      // Tab will be updated via slideChange event
     });
   });
 
-  // Add click handlers to navigation buttons
-  // Since swipers are synced via controller, we only need to call slidePrev/Next on one
   if (previousButton) {
     previousButton.addEventListener("click", () => {
       if (!previousButton.disabled) {
         sectorContentSwiper.slidePrev();
-        // Image swiper will sync automatically via controller
       }
     });
   }
@@ -144,22 +167,18 @@ document.addEventListener("DOMContentLoaded", () => {
     nextButton.addEventListener("click", () => {
       if (!nextButton.disabled) {
         sectorContentSwiper.slideNext();
-        // Image swiper will sync automatically via controller
       }
     });
   }
 
-  // Update active tab and navigation buttons when swiper changes
   sectorContentSwiper.on("slideChange", () => {
     const activeIndex = sectorContentSwiper.activeIndex;
     updateActiveTab(activeIndex);
     updateNavigationButtons(activeIndex);
   });
 
-  // Initialize button states
   updateNavigationButtons(sectorContentSwiper.activeIndex);
 
-  // GSAP animation for established element
   const heritageElements = gsap.utils.toArray("[data-gsap-id='heritage']");
 
   heritageElements.forEach(heritageElement => {
@@ -185,7 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    // Image pops in fast with scale
     tl.to([image, topLeftIcon, bottomRightIcon], {
       opacity: 1,
       duration: 1,
@@ -199,7 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "<"
       )
-      // Dot and text appear instantly
       .to(dot, {
         opacity: 1,
         duration: 0.8,
@@ -212,7 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  // Environment icon alternating color animation
   const environmentIcon = document.querySelector("[data-gsap-id='environment-icon']");
 
   if (environmentIcon) {
@@ -221,10 +237,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const bigCircle = environmentIcon.querySelector("[data-gsap-id='big-circle']");
 
     if (leaves && smallCircle && bigCircle) {
-      // Get all paths with red fill in the leaves
       const redPaths = leaves.querySelectorAll("path[fill='#BD0A27']");
 
-      // Create alternating color animation: leaves vs circles
       gsap
         .timeline({ repeat: -1, yoyo: true })
         .to(
@@ -257,15 +271,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Export icon alternating color animation
   const exportIcon = document.querySelector("[data-gsap-id='export-icon']");
 
   if (exportIcon) {
-    // Get circles by data-gsap-id
     const whiteCircles = exportIcon.querySelectorAll("[data-gsap-id='white-circle']");
     const redCircles = exportIcon.querySelectorAll("[data-gsap-id='red-circle']");
 
-    // Create alternating color animation matching the leaf rotation speed (1.5s per step)
     gsap
       .timeline({ repeat: -1, yoyo: true })
       .to(
@@ -288,23 +299,17 @@ document.addEventListener("DOMContentLoaded", () => {
       );
   }
 
-  // Globe icon alternating color animation
   const globeIcon = document.querySelector("[data-gsap-id='globe-icon']");
 
   if (globeIcon) {
-    // Get longitude circles using data-gsap-id
     const circles = globeIcon.querySelectorAll("[data-gsap-id='circle']");
 
-    // Get latitude lines using data-gsap-id
     const latLines = globeIcon.querySelectorAll("[data-gsap-id='lat-line']");
 
-    // Get the holder
     const holder = globeIcon.querySelector("#holder");
 
-    // Combine circles and lines for the globe
     const globeElements = [...circles, ...latLines];
 
-    // Create alternating color animation: globe vs holder
     gsap
       .timeline({ repeat: -1, yoyo: true })
       .to(
