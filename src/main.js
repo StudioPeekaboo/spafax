@@ -6,7 +6,7 @@ import { ScrollTrigger, SplitText, ScrollSmoother } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
 
 document.addEventListener("DOMContentLoaded", () => {
-  const smoother = ScrollSmoother.create({
+  ScrollSmoother.create({
     smooth: 2,
     effects: true,
     normalizeScroll: true,
@@ -62,11 +62,32 @@ document.addEventListener("DOMContentLoaded", () => {
               trigger: flickerElement,
               start: "top 85%",
               end: "bottom 20%",
-              markers: true,
             },
           });
         },
       });
+    });
+  });
+
+  const newsArticlesContainers = gsap.utils.toArray(".news-articles");
+
+  newsArticlesContainers.forEach(container => {
+    const newsArticles = container.querySelectorAll(".news-article");
+
+    gsap.from(newsArticles, {
+      opacity: 0,
+      yPercent: 100,
+      duration: 1,
+      ease: "power2.out",
+      stagger: {
+        amount: 0.5,
+        each: 0.25,
+      },
+      scrollTrigger: {
+        trigger: container,
+        start: "top 85%",
+        end: "bottom 20%",
+      },
     });
   });
 
