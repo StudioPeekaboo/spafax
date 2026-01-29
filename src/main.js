@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
   }
 
-  // Products accordion: show the image that matches the open panel (GSAP crossfade)
+  // Products accordion: show the image that matches the open panel (GSAP zoom + blur reveal)
   const accordionItems = document.querySelectorAll(".accordion-item");
   const accordionImages = document.querySelectorAll(".products-accordion-img");
 
@@ -399,8 +399,26 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!targetImage) return;
 
       const others = [...accordionImages].filter(img => img !== targetImage);
-      gsap.to(others, { opacity: 0, duration: 0.25, ease: "power2.in" });
-      gsap.to(targetImage, { opacity: 1, duration: 0.25, ease: "power2.out" });
+
+      gsap.to(others, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+        overwrite: true,
+      });
+
+      gsap.fromTo(
+        targetImage,
+        { opacity: 0, filter: "blur(10px)" },
+        {
+          opacity: 1,
+          filter: "blur(0px)",
+          duration: 0.5,
+          delay: 0.08,
+          ease: "power2.out",
+          overwrite: true,
+        }
+      );
     });
   });
 
