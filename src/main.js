@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     smooth: 2,
     effects: true,
     normalizeScroll: true,
+    wholePixels: true,
   });
 
   const flickerAnimationElements = gsap.utils.toArray("[data-animation='flicker']");

@@ -37,7 +37,7 @@
 
 @layer components {
   .heritage-bg {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 1) 100%), url("/assets/s.png");
+    background: linear-gradient(180deg, var(--color-spafax-off-black) 0%, rgba(0, 0, 0, 1) 100%), url("/assets/s.png");
     background-position: center center;
     background-size: cover, 50%;
     background-repeat: no-repeat, no-repeat;
@@ -45,11 +45,11 @@
   }
 
   .worldwide-excellence-bg {
-    background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.1) 100%), url("/assets/worldwide-excellence.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.1) 100%);
+  }
+
+  .worldwide-excellence-mask {
     mask-image: linear-gradient(to bottom, transparent, black var(--fade-size, 5rem), black calc(100% - var(--fade-size, 5rem)), transparent);
-    mask-composite: intersect;
   }
 
   .statistics-bg {
