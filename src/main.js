@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
             stagger: 0.1,
             scrollTrigger: {
               trigger: splitElement,
-              markers: true,
               start: "top 85%",
               end: "bottom 20%",
             },
