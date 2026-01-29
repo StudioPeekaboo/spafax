@@ -107,6 +107,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Stats section: single entry animation for all three icons (once on scroll into view)
+  const statsSection = document.getElementById("statistics");
+  if (statsSection) {
+    const statIcons = gsap.utils.toArray('#statistics [data-gsap-id="environment-icon"], #statistics [data-gsap-id="export-icon"], #statistics [data-gsap-id="globe-icon"]');
+
+    gsap.set(statIcons, { opacity: 0, scale: 0.6, filter: "blur(16px)", transformOrigin: "center center" });
+
+    gsap.to(statIcons, {
+      opacity: 1,
+      scale: 1,
+      filter: "blur(0px)",
+      duration: 0.9,
+      stagger: 0.12,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: statsSection,
+        start: "top 78%",
+        once: true,
+      },
+    });
+  }
+
   const heroSwiper = new Swiper(".hero-swiper", {
     loop: true,
     speed: 2000,
@@ -317,76 +339,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  const environmentIcon = document.querySelector("[data-gsap-id='environment-icon']");
-
-  if (environmentIcon) {
-    const leaves = environmentIcon.querySelector("[data-gsap-id='leaves']");
-    const smallCircle = environmentIcon.querySelector("[data-gsap-id='small-circle']");
-    const bigCircle = environmentIcon.querySelector("[data-gsap-id='big-circle']");
-
-    if (leaves && smallCircle && bigCircle) {
-      const redPaths = leaves.querySelectorAll("path[fill='#BD0A27']");
-
-      gsap
-        .timeline({ repeat: -1, yoyo: true })
-        .to(
-          redPaths,
-          {
-            fill: "white",
-            duration: 1.5,
-            ease: "power2.inOut",
-          },
-          0
-        )
-        .to(
-          smallCircle,
-          {
-            fill: "#BD0A27",
-            duration: 1.5,
-            ease: "power2.inOut",
-          },
-          0
-        )
-        .to(
-          bigCircle,
-          {
-            stroke: "#BD0A27",
-            duration: 1.5,
-            ease: "power2.inOut",
-          },
-          0
-        );
-    }
-  }
-
-  const exportIcon = document.querySelector("[data-gsap-id='export-icon']");
-
-  if (exportIcon) {
-    const whiteCircles = exportIcon.querySelectorAll("[data-gsap-id='white-circle']");
-    const redCircles = exportIcon.querySelectorAll("[data-gsap-id='red-circle']");
-
-    gsap
-      .timeline({ repeat: -1, yoyo: true })
-      .to(
-        whiteCircles,
-        {
-          fill: "#BD0A27",
-          duration: 1.5,
-          ease: "power2.inOut",
-        },
-        0
-      )
-      .to(
-        redCircles,
-        {
-          fill: "white",
-          duration: 1.5,
-          ease: "power2.inOut",
-        },
-        0
-      );
-  }
-
   // Products accordion: show the image that matches the open panel (GSAP zoom + blur reveal)
   const accordionItems = document.querySelectorAll(".accordion-item");
   const accordionImages = document.querySelectorAll(".products-accordion-img");
@@ -421,37 +373,4 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
   });
-
-  const globeIcon = document.querySelector("[data-gsap-id='globe-icon']");
-
-  if (globeIcon) {
-    const circles = globeIcon.querySelectorAll("[data-gsap-id='circle']");
-
-    const latLines = globeIcon.querySelectorAll("[data-gsap-id='lat-line']");
-
-    const holder = globeIcon.querySelector("#holder");
-
-    const globeElements = [...circles, ...latLines];
-
-    gsap
-      .timeline({ repeat: -1, yoyo: true })
-      .to(
-        globeElements,
-        {
-          fill: "white",
-          duration: 1.5,
-          ease: "power2.inOut",
-        },
-        0
-      )
-      .to(
-        holder,
-        {
-          fill: "#BD0A27",
-          duration: 1.5,
-          ease: "power2.inOut",
-        },
-        0
-      );
-  }
 });
