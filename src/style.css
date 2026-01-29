@@ -38,11 +38,7 @@
 
 @layer components {
   .heritage-bg {
-    background: linear-gradient(180deg, var(--color-spafax-off-black) 0%, rgba(0, 0, 0, 1) 100%), url("/assets/s.png");
-    background-position: center center;
-    background-size: cover, 50%;
-    background-repeat: no-repeat, no-repeat;
-    background-attachment: scroll, fixed;
+    background: linear-gradient(180deg, var(--color-spafax-off-black) 0%, rgba(0, 0, 0, 1) 100%);
   }
 
   .worldwide-excellence-bg {
