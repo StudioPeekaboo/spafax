@@ -96,10 +96,18 @@
   }
 
   #header {
-    @apply text-white;
+    @apply text-white transition-colors duration-500;
+
+    .header__navigation {
+      @apply transition-all duration-500;
+    }
+
+    .header__logo .text {
+      @apply transition-opacity duration-500;
+    }
 
     .header__language-switcher {
-      @apply bg-black/30;
+      @apply bg-black/30 transition-colors duration-500;
     }
   }
 
