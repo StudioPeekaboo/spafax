@@ -131,19 +131,94 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const heroSwiper = new Swiper(".hero-swiper", {
     loop: true,
-    speed: 2000,
+    speed: 1000,
     effect: "fade",
     fadeEffect: {
       crossFade: true,
     },
-    autoplay: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
     keyboard: true,
     grabCursor: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
     },
+    on: {
+      init: function () {
+        animateSlide(this.slides[this.activeIndex]);
+      },
+      slideChangeTransitionStart: function () {
+        animateSlide(this.slides[this.activeIndex]);
+      },
+    },
   });
+
+  function animateSlide(slide) {
+    const title = slide.querySelector("[data-gsap-id='slide-title']");
+    const btn = slide.querySelector("[data-gsap-id='slide-btn']");
+    const img = slide.querySelector("[data-gsap-id='slide-img']");
+
+    // Clean up previous SplitText or animations if any
+    if (title && title._gsapSplitText) {
+      title._gsapSplitText.revert();
+    }
+
+    const tl = gsap.timeline();
+
+    // Image Fade and subtle scale
+    if (img) {
+      tl.fromTo(
+        img,
+        { opacity: 0, scale: 1.1 },
+        { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" },
+        0
+      );
+    }
+
+    // Title Flicker Animation
+    if (title) {
+      const split = new SplitText(title, { type: "words, chars" });
+      title._gsapSplitText = split;
+
+      tl.from(
+        split.words,
+        {
+          opacity: 1,
+          stagger: 0.2,
+          duration: 0.2,
+          keyframes: {
+            "0%": { opacity: 0 },
+            "10%": { opacity: 1 },
+            "20%": { opacity: 0 },
+            "50%": { opacity: 1 },
+            "60%": { opacity: 0 },
+            "100%": { opacity: 1 },
+            easeEach: "steps(1)",
+          },
+        },
+        0.5
+      );
+    }
+
+    // Button Fade Animation (No scale/bounce)
+    if (btn) {
+      tl.fromTo(
+        btn,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 1.2,
+          ease: "power2.out",
+        },
+        "-=0.8"
+      );
+    }
+  }
 
   const sectorContentSwiper = new Swiper(".sector-content-swiper", {
     effect: "fade",
