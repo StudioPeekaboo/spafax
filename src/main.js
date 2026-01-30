@@ -13,6 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     wholePixels: true,
   });
 
+  ScrollTrigger.create({
+    start: "top top-=80",
+    end: 99999,
+    toggleClass: { className: "scrolled", targets: "#header" },
+  });
+
   // Navigate to sections when clicking nav links (works with ScrollSmoother)
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     const hash = link.getAttribute("href");

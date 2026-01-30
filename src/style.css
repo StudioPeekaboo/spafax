@@ -38,7 +38,11 @@
 
 @layer components {
   .heritage-bg {
-    background: linear-gradient(180deg, var(--color-spafax-off-black) 0%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(
+      180deg,
+      var(--color-spafax-off-black) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
   }
 
   .worldwide-excellence-bg {
@@ -46,11 +50,21 @@
   }
 
   .worldwide-excellence-mask {
-    mask-image: linear-gradient(to bottom, transparent, black var(--fade-size, 5rem), black calc(100% - var(--fade-size, 5rem)), transparent);
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black var(--fade-size, 5rem),
+      black calc(100% - var(--fade-size, 5rem)),
+      transparent
+    );
   }
 
   .statistics-bg {
-    background: radial-gradient(59.3% 99.73% at 55.38% 136.19%, rgba(115, 9, 18, 0.7) 0%, black 84.79%);
+    background: radial-gradient(
+      59.3% 99.73% at 55.38% 136.19%,
+      rgba(115, 9, 18, 0.7) 0%,
+      black 84.79%
+    );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -79,6 +93,32 @@
 
   #mobile-menu.show {
     @apply flex;
+  }
+
+  #header {
+    @apply text-white;
+
+    .header__language-switcher {
+      @apply bg-black/30;
+    }
+  }
+
+  #header.scrolled {
+    @apply text-black;
+
+    .header__logo {
+      .text {
+        @apply opacity-0;
+      }
+    }
+
+    .header__navigation {
+      @apply bg-white/85 backdrop-blur-[3.5px];
+    }
+
+    .header__language-switcher {
+      @apply bg-white;
+    }
   }
 
   .sector-tabs {
