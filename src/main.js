@@ -20,12 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Navigate to sections when clicking nav links (works with ScrollSmoother)
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const hash = link.getAttribute("href");
     if (hash === "#") return;
     const target = document.querySelector(hash);
     if (!target) return;
-    link.addEventListener("click", e => {
+    link.addEventListener("click", (e) => {
       e.preventDefault();
       smoother.scrollTo(target, true, "top top");
       // Close mobile menu if open
@@ -42,13 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.set(".split", { opacity: 1 });
 
   document.fonts.ready.then(() => {
-    splitElements.forEach(splitElement => {
+    splitElements.forEach((splitElement) => {
       SplitText.create(splitElement, {
         type: "words,lines",
         mask: "lines",
         linesClass: "line",
         autoSplit: true,
-        onSplit: instance => {
+        onSplit: (instance) => {
           return gsap.from(instance.lines, {
             yPercent: 120,
             stagger: 0.1,
@@ -62,11 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    flickerElements.forEach(flickerElement => {
+    flickerElements.forEach((flickerElement) => {
       SplitText.create(flickerElement, {
         type: "words, chars",
         autoSplit: true,
-        onSplit: instance => {
+        onSplit: (instance) => {
           return gsap.from(instance.words, {
             opacity: 1,
             stagger: 0.2,
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const newsArticlesContainers = gsap.utils.toArray(".news-articles");
 
-  newsArticlesContainers.forEach(container => {
+  newsArticlesContainers.forEach((container) => {
     const newsArticles = container.querySelectorAll(".news-article");
 
     gsap.from(newsArticles, {
@@ -114,25 +114,197 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Stats section: single entry animation for all three icons (once on scroll into view)
+  // Stats section: build up animation for all three icons
   const statsSection = document.getElementById("statistics");
   if (statsSection) {
-    const statIcons = gsap.utils.toArray('#statistics [data-gsap-id="environment-icon"], #statistics [data-gsap-id="export-icon"], #statistics [data-gsap-id="globe-icon"]');
+    // Environment Icon
+    const envIcon = statsSection.querySelector(
+      '[data-gsap-id="environment-icon"]',
+    );
+    if (envIcon) {
+      const bgCircle = envIcon.querySelector("#background-circle");
+      const bigCircle = envIcon.querySelector("#big-circle");
+      const smallCircle = envIcon.querySelector("#small-circle");
+      const leaves = envIcon.querySelectorAll("#leaves path");
 
-    gsap.set(statIcons, { opacity: 0, scale: 0.6, filter: "blur(16px)", transformOrigin: "center center" });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: envIcon,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
 
-    gsap.to(statIcons, {
-      opacity: 1,
-      scale: 1,
-      filter: "blur(0px)",
-      duration: 0.9,
-      stagger: 0.12,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: statsSection,
-        start: "top 78%",
-        once: true,
-      },
-    });
+      gsap.set([bgCircle, bigCircle, smallCircle, leaves], {
+        opacity: 0,
+        scale: 0,
+        transformOrigin: "center center",
+      });
+      // Set background opacity target to match design (0.22)
+      tl.to(bgCircle, {
+        opacity: 0.22,
+        scale: 1,
+        duration: 0.6,
+        ease: "back.out(1.7)",
+      })
+        .to(
+          bigCircle,
+          { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" },
+          "-=0.4",
+        )
+        .to(
+          smallCircle,
+          { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" },
+          "-=0.4",
+        )
+        .to(
+          leaves,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.05,
+            ease: "back.out(1.7)",
+          },
+          "-=0.4",
+        );
+    }
+
+    // Export Icon
+    const exportIcon = statsSection.querySelector(
+      '[data-gsap-id="export-icon"]',
+    );
+    if (exportIcon) {
+      const bgCircles = exportIcon.querySelectorAll("#background-circles path");
+      const centerCircles = exportIcon.querySelectorAll("#center-circles path");
+      const outerCircles = exportIcon.querySelectorAll("#outer-circles path");
+      const innerLines = exportIcon.querySelectorAll("#inner-lines path");
+      const connectLines = exportIcon.querySelectorAll(
+        "#connecting-lines path",
+      );
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: exportIcon,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.set(
+        [bgCircles, centerCircles, outerCircles, innerLines, connectLines],
+        { opacity: 0, scale: 0, transformOrigin: "center center" },
+      );
+
+      tl.to(bgCircles, {
+        opacity: 0.22,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "back.out(1.7)",
+      })
+        .to(
+          centerCircles,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "back.out(1.7)",
+          },
+          "-=0.4",
+        )
+        .to(
+          outerCircles,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.05,
+            ease: "back.out(1.7)",
+          },
+          "-=0.4",
+        )
+        .to(
+          connectLines,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.05,
+            ease: "power2.out",
+          },
+          "-=0.4",
+        )
+        .to(
+          innerLines,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.05,
+            ease: "power2.out",
+          },
+          "<",
+        );
+    }
+
+    // Globe Icon
+    const globeIcon = statsSection.querySelector('[data-gsap-id="globe-icon"]');
+    if (globeIcon) {
+      const gradientCircle = globeIcon.querySelector("#gradient-circle");
+      const holder = globeIcon.querySelector("#holder");
+      const circles = globeIcon.querySelectorAll('[data-gsap-id="circle"]');
+      const latLines = globeIcon.querySelectorAll('[data-gsap-id="lat-line"]');
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: globeIcon,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.set([gradientCircle, holder, circles, latLines], {
+        opacity: 0,
+        scale: 0,
+        transformOrigin: "center center",
+      });
+
+      tl.to(gradientCircle, {
+        opacity: 0.22,
+        scale: 1,
+        duration: 0.6,
+        ease: "back.out(1.7)",
+      })
+        .to(
+          holder,
+          { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" },
+          "-=0.4",
+        )
+        .to(
+          circles,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "back.out(1.7)",
+          },
+          "-=0.4",
+        )
+        .to(
+          latLines,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.05,
+            ease: "power2.out",
+          },
+          "-=0.4",
+        );
+    }
   }
 
   const heroSwiper = new Swiper(".hero-swiper", {
@@ -180,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
         img,
         { opacity: 0, scale: 1.1 },
         { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" },
-        0
+        0,
       );
     }
 
@@ -205,7 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
             easeEach: "steps(1)",
           },
         },
-        0.5
+        0.5,
       );
     }
 
@@ -221,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
           duration: 1.2,
           ease: "power2.out",
         },
-        "-=0.8"
+        "-=0.8",
       );
     }
   }
@@ -288,7 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  sectorTabs.forEach(tab => {
+  sectorTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       const slideIndex = parseInt(tab.getAttribute("data-slide"));
       sectorContentSwiper.slideTo(slideIndex);
@@ -303,7 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let scrollLeft = 0;
     let hasDragged = false;
 
-    sectorTabsContainer.addEventListener("mousedown", e => {
+    sectorTabsContainer.addEventListener("mousedown", (e) => {
       isDown = true;
       hasDragged = false;
       sectorTabsContainer.classList.add("dragging");
@@ -311,7 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollLeft = sectorTabsContainer.scrollLeft;
     });
 
-    sectorTabsContainer.addEventListener("mousemove", e => {
+    sectorTabsContainer.addEventListener("mousemove", (e) => {
       if (!isDown) return;
       e.preventDefault();
       hasDragged = true;
@@ -336,13 +508,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sectorTabsContainer.addEventListener(
       "click",
-      e => {
+      (e) => {
         if (hasDragged) {
           e.preventDefault();
           e.stopPropagation();
         }
       },
-      true
+      true,
     );
   }
 
@@ -372,10 +544,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const heritageElements = gsap.utils.toArray("[data-gsap-id='heritage']");
 
-  heritageElements.forEach(heritageElement => {
+  heritageElements.forEach((heritageElement) => {
     const image = heritageElement.querySelector("[data-gsap-id='image']");
-    const topLeftIcon = heritageElement.querySelector("[data-gsap-id='top-left-icon']");
-    const bottomRightIcon = heritageElement.querySelector("[data-gsap-id='bottom-right-icon']");
+    const topLeftIcon = heritageElement.querySelector(
+      "[data-gsap-id='top-left-icon']",
+    );
+    const bottomRightIcon = heritageElement.querySelector(
+      "[data-gsap-id='bottom-right-icon']",
+    );
     const line = heritageElement.querySelector("[data-gsap-id='line']");
     const dot = heritageElement.querySelector("[data-gsap-id='dot']");
     const text = heritageElement.querySelector("[data-gsap-id='text']");
@@ -406,7 +582,7 @@ document.addEventListener("DOMContentLoaded", () => {
           duration: 0.8,
           ease: "power2.out",
         },
-        "<"
+        "<",
       )
       .to(dot, {
         opacity: 1,
@@ -424,14 +600,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const accordionItems = document.querySelectorAll(".accordion-item");
   const accordionImages = document.querySelectorAll(".products-accordion-img");
 
-  accordionItems.forEach(item => {
+  accordionItems.forEach((item) => {
     item.addEventListener("toggle", () => {
       if (!item.open) return;
       const panel = item.getAttribute("data-accordion-panel");
-      const targetImage = document.querySelector(`.products-accordion-img[data-accordion-panel="${panel}"]`);
+      const targetImage = document.querySelector(
+        `.products-accordion-img[data-accordion-panel="${panel}"]`,
+      );
       if (!targetImage) return;
 
-      const others = [...accordionImages].filter(img => img !== targetImage);
+      const others = [...accordionImages].filter((img) => img !== targetImage);
 
       gsap.to(others, {
         opacity: 0,
@@ -450,7 +628,7 @@ document.addEventListener("DOMContentLoaded", () => {
           delay: 0.08,
           ease: "power2.out",
           overwrite: true,
-        }
+        },
       );
     });
   });
