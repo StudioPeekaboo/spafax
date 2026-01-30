@@ -8,7 +8,7 @@
   </head>
 
   <body class="bg-black">
-    <header id="header" class="fixed top-0 z-50 w-full">
+    <header id="header" class="fixed top-0 z-50 w-full transition-colors duration-300">
       <div class="container">
         <div class="py-3 md:py-5 flex gap-4 md:gap-6 items-center justify-between">
           <svg class="h-8 md:h-12 w-auto shrink-0" xmlns="http://www.w3.org/2000/svg" width="200" height="45" viewBox="0 0 200 45" fill="none">
@@ -91,6 +91,7 @@
     <div id="smooth-wrapper">
       <div id="smooth-content" class="will-change-transform">
         <section id="hero" class="swiper hero-swiper relative bg-black">
+          <div class="absolute inset-x-0 top-0 h-32 md:h-48 bg-linear-to-b from-black/90 to-transparent to-98% z-10 pointer-events-none"></div>
           <div class="swiper-wrapper">
             <div class="swiper-slide relative">
               <img src="./assets/slide-1.jpg" class="h-screen w-screen object-cover" data-gsap-id="slide-img" />
