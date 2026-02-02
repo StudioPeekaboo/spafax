@@ -703,20 +703,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Initial state for pointers
-  gsap.set(".image-pointer-1, .image-pointer-2", { opacity: 1 }); // Let them be visible if Safety is default open?
-  // Check if Safety is default open [open] attribute on details
-  // Line 2491 in index.html says name="why-choose-spafax" open data-accordion-panel="0"
-  // So yes, Safety is open by default.
-  // We should trigger animation or set initial state to "In".
-  // Since js runs on load, we can run animatePointersIn() initially if panel 0 is open.
+  gsap.set(".image-pointer-1, .image-pointer-2", { opacity: 0 });
 
   if (
     document.querySelector('.accordion-item[data-accordion-panel="0"][open]')
   ) {
-    // Small delay to ensure layout is ready
-    setTimeout(animatePointersIn, 100);
-  } else {
-    gsap.set(".image-pointer-1, .image-pointer-2", { opacity: 0 });
+    ScrollTrigger.create({
+      trigger: ".products-accordion-img[data-accordion-panel='0']", // Trigger when the Safety image is in view
+      start: "top 75%",
+      once: true,
+      onEnter: () => animatePointersIn(),
+    });
   }
 
   // Mobile Menu Logic
