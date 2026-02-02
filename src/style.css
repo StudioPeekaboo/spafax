@@ -83,16 +83,16 @@
   }
 
   /* Mobile menu styles */
-  #mobile-menu {
-    @apply hidden fixed top-0 left-0 w-full h-full z-40 flex-col items-center justify-center gap-8 pt-20 transition-transform duration-300 ease-in-out;
-
-    @media (min-width: 768px) {
-      @apply flex static w-auto h-auto bg-transparent backdrop-blur-none flex-row pt-0;
+  body {
+    #mobile-menu {
+      @apply translate-x-full;
     }
   }
 
-  #mobile-menu.show {
-    @apply flex;
+  body.overlay-open {
+    #mobile-menu {
+      @apply translate-x-0;
+    }
   }
 
   #header {

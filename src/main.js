@@ -632,4 +632,35 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
   });
+  // Mobile Menu Logic
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuClose = document.getElementById("mobile-menu-close");
+  const mobileMenuNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+  function toggleMobileMenu() {
+    document.body.classList.toggle("overlay-open");
+  }
+
+  function closeMobileMenu() {
+    document.body.classList.remove("overlay-open");
+  }
+
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+  }
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeMobileMenu();
+    });
+  }
+
+  mobileMenuNavLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
 });
