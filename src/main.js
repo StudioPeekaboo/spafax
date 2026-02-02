@@ -630,8 +630,95 @@ document.addEventListener("DOMContentLoaded", () => {
           overwrite: true,
         },
       );
+
+      // Pointer Animations
+      if (panel === "0") {
+        animatePointersIn();
+      } else {
+        animatePointersOut();
+      }
     });
   });
+
+  function animatePointersIn() {
+    const pointers = document.querySelectorAll(
+      ".image-pointer-1, .image-pointer-2",
+    );
+
+    pointers.forEach((pointer) => {
+      // Use attribute selectors to handle potential duplicate IDs in inline SVGs
+      const text = pointer.querySelector('[id="text"]');
+      const line = pointer.querySelector('[id="line-to-text"]');
+      // Select direct children of the group with id="pointer"
+      const pointerGroup = pointer.querySelector('[id="pointer"]');
+      const bullseyeParts = pointerGroup
+        ? pointerGroup.querySelectorAll('*:not([id="line-to-text"])')
+        : [];
+
+      gsap.set(pointer, { opacity: 1 }); // Ensure parent is visible
+
+      const tl = gsap.timeline();
+
+      // 1. Bullseye (Scale/Fade in)
+      if (bullseyeParts.length > 0) {
+        tl.fromTo(
+          bullseyeParts,
+          { opacity: 0, scale: 0, transformOrigin: "center center" },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.4,
+            stagger: 0.05,
+            ease: "back.out(1.7)",
+          },
+        );
+      }
+
+      // 2. Line (Draw)
+      if (line) {
+        const length = line.getTotalLength();
+        tl.fromTo(
+          line,
+          { strokeDasharray: length, strokeDashoffset: length },
+          { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" },
+        );
+      }
+
+      // 3. Text (Fade/Slide in)
+      if (text) {
+        tl.fromTo(
+          text,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        );
+      }
+    });
+  }
+
+  function animatePointersOut() {
+    const pointers = document.querySelectorAll(
+      ".image-pointer-1, .image-pointer-2",
+    );
+    gsap.to(pointers, { opacity: 0, duration: 0.3, overwrite: true });
+  }
+
+  // Initial state for pointers
+  gsap.set(".image-pointer-1, .image-pointer-2", { opacity: 1 }); // Let them be visible if Safety is default open?
+  // Check if Safety is default open [open] attribute on details
+  // Line 2491 in index.html says name="why-choose-spafax" open data-accordion-panel="0"
+  // So yes, Safety is open by default.
+  // We should trigger animation or set initial state to "In".
+  // Since js runs on load, we can run animatePointersIn() initially if panel 0 is open.
+
+  if (
+    document.querySelector('.accordion-item[data-accordion-panel="0"][open]')
+  ) {
+    // Small delay to ensure layout is ready
+    setTimeout(animatePointersIn, 100);
+  } else {
+    gsap.set(".image-pointer-1, .image-pointer-2", { opacity: 0 });
+  }
+
   // Mobile Menu Logic
   const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
