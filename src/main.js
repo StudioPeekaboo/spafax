@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const flickerElements = gsap.utils.toArray(".flicker");
   const splitElements = gsap.utils.toArray(".split");
 
-  gsap.set(".split", { opacity: 1 });
+  gsap.set([".split", ".flicker"], { opacity: 1 });
 
   document.fonts.ready.then(() => {
     splitElements.forEach((splitElement) => {
@@ -67,16 +67,16 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "words, chars",
         autoSplit: true,
         onSplit: (instance) => {
-          return gsap.from(instance.words, {
-            opacity: 1,
+          gsap.set(instance.words, { opacity: 1 });
+          return gsap.to(instance.words, {
             stagger: 0.2,
-            duration: 0.2,
+            duration: 0.4, // Increased duration slightly to accommodate more steps
             keyframes: {
-              "0%": { opacity: 0 },
-              "10%": { opacity: 1 },
-              "20%": { opacity: 0 },
-              "50%": { opacity: 1 },
-              "60%": { opacity: 0 },
+              "0%": { opacity: 1 },
+              "10%": { opacity: 0 },
+              "20%": { opacity: 1 },
+              "30%": { opacity: 0 },
+              "40%": { opacity: 1 },
               "100%": { opacity: 1 },
               easeEach: "steps(1)",
             },
