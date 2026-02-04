@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fadeUpElements.forEach((element) => {
     gsap.to(element, {
-      duration: 0.8,
+      duration: 1.6,
       y: 0,
       opacity: 1,
       ease: "power3.out",
