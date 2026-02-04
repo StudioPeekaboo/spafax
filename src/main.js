@@ -36,58 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const flickerElements = gsap.utils.toArray(".flicker");
-  const splitElements = gsap.utils.toArray(".split");
+  gsap.set(".animate.fade-up", { opacity: 0, y: 10 });
 
-  gsap.set([".split", ".flicker"], { opacity: 1 });
+  const fadeUpElements = gsap.utils.toArray(".animate.fade-up");
 
-  document.fonts.ready.then(() => {
-    splitElements.forEach((splitElement) => {
-      SplitText.create(splitElement, {
-        type: "words,lines",
-        mask: "lines",
-        linesClass: "line",
-        autoSplit: true,
-        onSplit: (instance) => {
-          return gsap.from(instance.lines, {
-            yPercent: 120,
-            stagger: 0.1,
-            scrollTrigger: {
-              trigger: splitElement,
-              start: "top 85%",
-              end: "bottom 20%",
-            },
-          });
-        },
-      });
-    });
-
-    flickerElements.forEach((flickerElement) => {
-      SplitText.create(flickerElement, {
-        type: "words, chars",
-        autoSplit: true,
-        onSplit: (instance) => {
-          gsap.set(instance.words, { opacity: 1 });
-          return gsap.to(instance.words, {
-            stagger: 0.2,
-            duration: 0.4, // Increased duration slightly to accommodate more steps
-            keyframes: {
-              "0%": { opacity: 1 },
-              "10%": { opacity: 0 },
-              "20%": { opacity: 1 },
-              "30%": { opacity: 0 },
-              "40%": { opacity: 1 },
-              "100%": { opacity: 1 },
-              easeEach: "steps(1)",
-            },
-            scrollTrigger: {
-              trigger: flickerElement,
-              start: "top 85%",
-              end: "bottom 20%",
-            },
-          });
-        },
-      });
+  fadeUpElements.forEach((element) => {
+    gsap.to(element, {
+      duration: 0.8,
+      y: 0,
+      opacity: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: element,
+        start: "top 85%",
+      },
     });
   });
 
@@ -356,26 +318,19 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     }
 
-    // Title Flicker Animation
+    // Title Fade Up Animation
     if (title) {
       const split = new SplitText(title, { type: "words, chars" });
       title._gsapSplitText = split;
 
       tl.from(
-        split.words,
+        split.chars,
         {
-          opacity: 1,
-          stagger: 0.2,
-          duration: 0.2,
-          keyframes: {
-            "0%": { opacity: 0 },
-            "10%": { opacity: 1 },
-            "20%": { opacity: 0 },
-            "50%": { opacity: 1 },
-            "60%": { opacity: 0 },
-            "100%": { opacity: 1 },
-            easeEach: "steps(1)",
-          },
+          duration: 1,
+          y: 30,
+          opacity: 0,
+          stagger: 0.03,
+          ease: "power3.out",
         },
         0.5,
       );
