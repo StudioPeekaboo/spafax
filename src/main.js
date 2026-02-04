@@ -534,19 +534,19 @@ document.addEventListener("DOMContentLoaded", () => {
         line,
         {
           scaleY: 1,
-          duration: 0.8,
+          duration: 1,
           ease: "power2.out",
         },
         "<",
       )
       .to(dot, {
         opacity: 1,
-        duration: 0.8,
+        duration: 1,
         ease: "power2.out",
       })
       .to(text, {
         opacity: 1,
-        duration: 0.8,
+        duration: 1,
         ease: "power2.out",
       });
   });
